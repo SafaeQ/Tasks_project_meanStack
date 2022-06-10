@@ -17,9 +17,6 @@ app.use(bodyParser.urlencoded({extended: true}))
 
 app.use(cors({ origin: true }))
 
-app.use('/', (req, res)=>{
-    res.send('hello from backend')
-})
 
 // routes
 const userRouter = require('./routes/userAuth.routes')
