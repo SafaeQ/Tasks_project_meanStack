@@ -11,6 +11,10 @@ const Tasks = new mongoose.Schema({
     },
     type: {
 
+    },
+    dueDate: {
+        type: Date,
+        default: Date.now()
     }
 })
 
