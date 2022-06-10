@@ -20,6 +20,7 @@
   "homepage": "https://github.com/SafaeQ/Tasks_project_meanStack#readme",
   "dependencies": {
     "express": "^4.18.1",
+    "mongoose": "^6.3.6",
     "nodemon": "^2.0.16"
   }
 }
