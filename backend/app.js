@@ -1,11 +1,21 @@
 const express = require('express')
 
+const db = require('./connection/db')
 
+// set up express app
 const app = express()
 
 
+const PORT = process.env.PORT || 9898
+
+
+// middlewares
 app.use('/', (req, res)=>{
     res.send('hello from backend')
 })
 
-app.listen(9898, ()=>{console.log(`✌ my app is running`)})
+
+// listen for requests
+db()
+    .catch((error) => {throw error})
+    .then(()=> {app.listen(PORT, ()=>{console.log(`✌ my app is running`)})})
