@@ -27,6 +27,4 @@ const userRouter = require('./routes/userAuth.routes')
 app.use('/', userRouter)
 
 // listen for requests
-db()
-    .catch((error) => {throw error})
-    .then(()=> {app.listen(PORT, ()=>{console.log(`✌ my app is running`)})})
+db().catch((err) => { throw err }).then(()=> {app.listen(PORT, ()=>{ console.log(`✌ my app is running`) })})
