@@ -22,6 +22,9 @@ app.use('/', (req, res)=>{
 })
 
 // routes
+const userRouter = require('./routes/userAuth.routes')
+
+app.use('/', userRouter)
 
 // listen for requests
 db()
