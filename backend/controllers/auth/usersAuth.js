@@ -2,6 +2,10 @@ const User = require('../../models/users.model')
 
 const getHeshedPassword = require('../../utils/hashedPassword')
 
+const bcrypt = require('bcrypt')
+
+const jwt = require('jsonwebtoken')
+
 
 
 const signup = async (req, res) =>{
