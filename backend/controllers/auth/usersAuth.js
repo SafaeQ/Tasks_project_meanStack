@@ -42,10 +42,13 @@ const login = async (req, res) => {
 
         if (!validPassword) return res.status(409).send(' 🤷‍♂️Password not correct')
 
-        
+        const token = jwt.sign({ _id: user._id}, 'secret')
+
+        res.status(200).send({ status: 'success', token })
+
     } catch (error) {
-        
+        res.status(404).send(error)
     }
 }
 
-module.exports = { signup, }
+module.exports = { signup, login}
