@@ -1,4 +1,5 @@
 const User = require('../../models/users.model')
+
 const getHeshedPassword = require('../../utils/hashedPassword')
 
 
@@ -24,7 +25,7 @@ const signup = async (req, res) =>{
         res.status(200).send(result)
 
     } catch (error) {
-        
+
         res.status(404).send(error)
     }
 }
