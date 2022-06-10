@@ -1,4 +1,5 @@
 const User = require('../../models/users.model')
+const getHeshedPassword = require('../../utils/hashedPassword')
 
 
 
@@ -10,10 +11,12 @@ const signup = async (req, res) =>{
 
         if( userExiting ) res.status(409).send('🤷‍♂️ user already exiting')
 
+        const hashedPassword = getHeshedPassword(password)
+
         const user = await User.create({
             fullName,
             email: email.toLowerCase(),
-            password
+            password: hashedPassword
         })
 
         const result = await user.save()
@@ -21,6 +24,7 @@ const signup = async (req, res) =>{
         res.status(200).send(result)
 
     } catch (error) {
+        
         res.status(404).send(error)
     }
 }
