@@ -77,7 +77,10 @@ const updateTasks = async (req, res) => {
             type: type
         })
 
-        
+        if (!task) {
+            return res.status(404).send({ success: false, message: "Task not found with id " + id });
+        }
+
     } catch (error) {
         
     }
