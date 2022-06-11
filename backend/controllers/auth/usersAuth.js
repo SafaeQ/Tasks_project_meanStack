@@ -11,9 +11,15 @@ const jwt = require('jsonwebtoken')
 require('dotenv').config();
 
 
+
 const signup = async (req, res) =>{
     try {
+        const {error } = registerValidation.register(req.body)
+
         const {fullName, email, password} = req.body
+
+        if (error) { 
+            return res.status(400).json({"error": error.message}) }
 
         const userExiting = await User.findOne({ email })
 
