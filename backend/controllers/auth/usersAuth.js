@@ -69,5 +69,16 @@ const login = async (req, res) => {
 
 const logout = (req, res) => {
 
+    const cookie = req.cookies;
+
+    if(!cookie.jwt) return res.sendStatus(204);
+
+    const refreshToken = cookie.jwt
+
+    const user = await User.findOne({ refreshToken: refreshToken })
+
+    if (!user) {
+        
+    }
 }
 module.exports = { signup, login}
