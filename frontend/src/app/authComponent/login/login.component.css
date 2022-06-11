@@ -1,4 +1,7 @@
-.card {
+mat-card {
+  max-width: 400px;
+  margin: 2em auto;
+  text-align: center;
   width: 500px;
   padding: 40px;
   border: none;
@@ -8,14 +11,10 @@
   left: 50%;
   transform: translate(-50%, -50%);
   background: red;
-  background: linear-gradient(90deg, hsla(205, 46%, 30%, 1) 0%, red 100%);
+  background: linear-gradient(90deg, rgb(84, 220, 235) 0%, rgb(226, 145, 233) 100%);
 }
 
-
-.card h1 , h6 {
-  color: #fff;
-}
-label
-{
+mat-form-field {
+  display: block;
   color: #fff;
 }
