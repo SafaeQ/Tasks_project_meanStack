@@ -37,11 +37,11 @@ const signup = async (req, res) =>{
 const login = async (req, res) => {
     try {
         const { email, password} = req.body
-
+        
         const user = await User.findOne({ email })
 
         if (!user) return res.status(409).send(`🤷‍♂️Email Incorrect / Not Found! Please Register First.`)
-
+        
         const validPassword = bcrypt.compare(password, user.password)
 
         if (!validPassword) return res.status(409).send(' 🤷‍♂️Password not correct')
