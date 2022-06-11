@@ -1,35 +1,30 @@
-<div class=" container">
-  <div class=" row">
-      <div class="col-md-6">
-          <div class="card">
-              <div class="text-center">
-                  <h1>Sign Up </h1>
-              </div>
-              <mat-card>
-                <mat-card-content>
-                  <form #loginForm="ngForm" >
-                    <h2>Log In</h2>
-                    <mat-error >
-                      The username and password were not recognized
-                    </mat-error>
-                    <mat-form-field>
-                      <input matInput placeholder="Email" name="username" required>
-                      <mat-error>
-                        Please provide a valid email address
-                      </mat-error>
-                    </mat-form-field>
-                    <mat-form-field>
-                      <input matInput type="password" placeholder="Password" name="password" required>
-                      <mat-error>
-                        Please provide a valid password
-                      </mat-error>
-                    </mat-form-field>
-                    <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
-                  </form>
-                </mat-card-content>
-              </mat-card>
-              <!-- <a style='color:#fff; margin-top: 10px; text-decoration: none;' routerLink="/login" >already have account go to login</a> -->
-          </div>
-      </div>
-  </div>
-</div>
+<mat-card>
+    <mat-card-content>
+      <form #loginForm="ngForm" >
+        <h2>Sign up</h2>
+          <!-- <mat-error >
+              The username and password were not recognized
+          </mat-error> -->
+          <mat-form-field>
+            <input matInput placeholder="Full Name" name="full Name" required>
+            <mat-error>
+              Please provide a valid full name
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput placeholder="Email" name="email" required>
+            <mat-error>
+              Please provide a valid Email
+            </mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input matInput type="password" placeholder="Password" name="password" required>
+            <mat-error>
+              Please provide a valid password
+            </mat-error>
+          </mat-form-field>
+          <button mat-raised-button color="primary" [disabled]="!loginForm.form.valid">Login</button>
+      </form>
+    </mat-card-content>
+    <!-- <a style='color:#fff; margin-top: 10px; text-decoration: none;' routerLink="/login" >already have account go to login</a> -->
+</mat-card>
