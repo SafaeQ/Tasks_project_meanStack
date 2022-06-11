@@ -6,6 +6,7 @@ const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken')
 
+require('dotenv').config();
 
 
 const signup = async (req, res) =>{
@@ -46,7 +47,7 @@ const login = async (req, res) => {
 
         if (!validPassword) return res.status(409).send(' 🤷‍♂️Password not correct')
 
-        const token = jwt.sign({ _id: user._id}, 'secret')
+        const token = jwt.sign({ _id: user._id}, process.env.SECRET)
 
         res.status(200).send({ status: 'success', token })
 

@@ -63,4 +63,32 @@ const getTaskById = async (req, res) => {
         res.status(404).send(error)
     }
 }
-module.exports = { getAllTask, createTask, deleteTask, getTaskById}
+
+const updateTasks = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const {label, description, dueDate, type} = req.body
+
+        const task = await Task.updateOne({ _id: id }, {
+            label: label,
+            description: description,
+            dueDate: dueDate,
+            type: type
+        })
+
+        if (!task) {
+            return res.status(404).send({ success: false, message: "Task not found with id " + id });
+        }
+        res.status(200).send({msg: 'updated succefully', task })
+
+    } catch (error) {
+
+        return res.status(500).send({
+            success: false,
+            message: error
+        })
+    }
+
+}
+module.exports = { getAllTask, createTask, deleteTask, getTaskById, updateTasks}
