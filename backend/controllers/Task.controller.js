@@ -49,4 +49,18 @@ const deleteTask = async (req, res) => {
         res.status(404).send(error)
     }
 }
-module.exports = { getAllTask, createTask, deleteTask }
+
+const getTaskById = async (req, res) => {
+    try {
+        const id = req.params.id 
+
+        const task = await Task.find(id)
+
+        res.status(200).send(task)
+
+    } catch (error) {
+        
+        res.status(404).send(error)
+    }
+}
+module.exports = { getAllTask, createTask, deleteTask, getTaskById}
