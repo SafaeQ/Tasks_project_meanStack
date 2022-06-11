@@ -1,6 +1,6 @@
 const taskRouter = require('express').Router()
 
-const { getAllTask, createTask, deleteTask, getTaskById } = require('../controllers/Task.controller')
+const { getAllTask, createTask, deleteTask, getTaskById, updateTasks } = require('../controllers/Task.controller')
 
 
     taskRouter.get('/', getAllTask)
@@ -10,6 +10,8 @@ const { getAllTask, createTask, deleteTask, getTaskById } = require('../controll
     taskRouter.delete('/:id', deleteTask)
 
     taskRouter.get('/:id', getTaskById)
+
+    taskRouter.put('/:id', updateTasks)
 
 
 module.exports = taskRouter;
