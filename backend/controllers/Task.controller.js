@@ -14,3 +14,21 @@ const getAllTask = async (req, res) => {
         throw new Error('No User Found')
     }
 }
+
+const createTask = async (req, res) => {
+    try {
+        const {label, discription, type, dueDate} = req.body
+
+        const task = await Task.create({
+            label,
+            discription,
+            type,
+            dueDate
+        })
+
+        const result = await task.save()
+    } catch (error) {
+        
+    }
+}
+module.exports = { getAllTask }
