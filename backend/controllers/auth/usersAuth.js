@@ -71,7 +71,7 @@ const logout = async (req, res) => {
 
     const cookie = req.cookies;
 
-    if(!cookie.jwt) return res.sendStatus(204);
+    if(!cookie?.jwt) return res.sendStatus(204);
 
     const refreshToken = cookie.jwt
 
