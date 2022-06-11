@@ -80,7 +80,7 @@ const updateTasks = async (req, res) => {
         if (!task) {
             return res.status(404).send({ success: false, message: "Task not found with id " + id });
         }
-        res.status(200).send({msg: 'updated succefully', data: task })
+        res.status(200).send({msg: 'updated succefully', task })
 
     } catch (error) {
 
