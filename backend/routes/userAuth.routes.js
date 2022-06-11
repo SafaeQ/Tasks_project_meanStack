@@ -7,7 +7,7 @@ const {signup, login, logout} = require('../controllers/auth/usersAuth')
 
     userRouter.post('/login', login)
 
-    userRouter.post('/logout', logout)
+    userRouter.get('/logout', logout)
 
 
 module.exports = userRouter
