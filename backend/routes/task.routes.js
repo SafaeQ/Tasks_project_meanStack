@@ -7,7 +7,7 @@ const { getAllTask, createTask, deleteTask, getTaskById } = require('../controll
 
     taskRouter.post('/add', createTask)
 
-    taskRouter.delete('/delete', deleteTask)
+    taskRouter.delete('/:id', deleteTask)
 
     taskRouter.get('/:id', getTaskById)
 
