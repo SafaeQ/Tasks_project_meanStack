@@ -2,6 +2,8 @@ const taskRouter = require('express').Router()
 
 const { getAllTask, createTask, deleteTask, getTaskById, updateTasks } = require('../controllers/Task.controller')
 
+const checkAuth = require('../middlewares/isAuth')
+
 
     taskRouter.get('/', getAllTask)
 
