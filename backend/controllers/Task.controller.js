@@ -63,4 +63,24 @@ const getTaskById = async (req, res) => {
         res.status(404).send(error)
     }
 }
+
+const updateTasks = async (req, res) => {
+    try {
+        const id = req.params.id
+
+        const {label, description, dueDate, type} = req.body
+
+        const task = await Task.updateOne({ _id: id }, {
+            label: label,
+            description: description,
+            dueDate: dueDate,
+            type: type
+        })
+
+        
+    } catch (error) {
+        
+    }
+
+}
 module.exports = { getAllTask, createTask, deleteTask, getTaskById}
