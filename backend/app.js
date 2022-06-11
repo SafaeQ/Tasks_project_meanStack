@@ -21,7 +21,10 @@ app.use(cors({ origin: true }))
 // routes
 const userRouter = require('./routes/userAuth.routes')
 
-app.use('/', userRouter)
+const taskRouter = require('./routes/task.routes')
+
+app.use('/', userRouter, taskRouter)
+
 
 // listen for requests
 db().catch((err) => { throw err }).then(()=> {app.listen(PORT, ()=>{ console.log(`✌ my app is running`) })})
