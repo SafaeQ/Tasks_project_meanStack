@@ -17,13 +17,14 @@ const getAllTask = async (req, res) => {
 
 const createTask = async (req, res) => {
     try {
-        const {label, discription, type, dueDate} = req.body
+        const {label, discription, type, dueDate, user_id} = req.body
         
         const task = await Task.create({
             label,
             discription,
             type,
-            dueDate
+            dueDate,
+            user_id
         })
 
         const result = await task.save()
@@ -68,13 +69,14 @@ const updateTasks = async (req, res) => {
     try {
         const id = req.params.id
 
-        const {label, description, dueDate, type} = req.body
+        const {label, description, dueDate, type, user_id} = req.body
 
         const task = await Task.updateOne({ _id: id }, {
             label: label,
             description: description,
             dueDate: dueDate,
-            type: type
+            type: type,
+            user_id: user_id
         })
 
         if (!task) {
