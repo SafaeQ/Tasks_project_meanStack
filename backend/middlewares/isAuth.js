@@ -13,6 +13,10 @@ const checkAuth = async (req, res, next) => {
     jwt.verify(token, 'secret', (err, decoded) => {
 
         if (err) return res.sendStatus(403);
-        
+
+        req.user = decoded;
+
+        next()
     })
 }
+
