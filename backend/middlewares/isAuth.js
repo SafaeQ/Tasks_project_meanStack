@@ -1,5 +1,7 @@
 const jwt = require('jsonwebtoken')
 
+require('dotenv').config()
+
 
 const checkAuth = async (req, res, next) => {
     
@@ -11,7 +13,7 @@ const checkAuth = async (req, res, next) => {
 
     if (!token) return res.sendStatus(401)
 
-    jwt.verify(token, 'secret', (err, decoded) => {
+    jwt.verify(token, process.env.SECRET, (err, decoded) => {
 
         if (err) return res.sendStatus(403);
 
