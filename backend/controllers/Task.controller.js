@@ -27,8 +27,12 @@ const createTask = async (req, res) => {
         })
 
         const result = await task.save()
-    } catch (error) {
         
+        res.status(200).send(result)
+
+    } catch (error) {
+
+        res.status(400).send(error)
     }
 }
-module.exports = { getAllTask }
+module.exports = { getAllTask, createTask }
