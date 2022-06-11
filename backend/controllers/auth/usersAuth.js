@@ -2,7 +2,7 @@ const User = require('../../models/users.model')
 
 const getHeshedPassword = require('../../utils/hashedPassword')
 
-const bcrypt = require('bcrypt')
+const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken')
 
