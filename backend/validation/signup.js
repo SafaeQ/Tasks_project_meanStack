@@ -11,3 +11,5 @@ const register = (data) => {
     })
     return schema.validate(data);
 }
+
+module.exports = { register }
