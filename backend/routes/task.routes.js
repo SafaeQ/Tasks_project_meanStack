@@ -5,15 +5,15 @@ const { getAllTask, createTask, deleteTask, getTaskById, updateTasks } = require
 const checkAuth = require('../middlewares/isAuth')
 
 
-    taskRouter.get('/', getAllTask)
+    taskRouter.get('/', checkAuth, getAllTask)
 
-    taskRouter.post('/add', createTask)
+    taskRouter.post('/add',checkAuth, createTask)
 
-    taskRouter.delete('/:id', deleteTask)
+    taskRouter.delete('/:id',checkAuth, deleteTask)
 
-    taskRouter.get('/:id', getTaskById)
+    taskRouter.get('/:id',checkAuth, getTaskById)
 
-    taskRouter.put('/:id', updateTasks)
+    taskRouter.put('/:id',checkAuth, updateTasks)
 
 
 module.exports = taskRouter;
