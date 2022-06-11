@@ -52,9 +52,9 @@ const deleteTask = async (req, res) => {
 
 const getTaskById = async (req, res) => {
     try {
-        const id = req.params.id 
-
-        const task = await Task.find(id)
+        const id = req.params.id
+        
+        const task = await Task.findById(id)
 
         res.status(200).send(task)
 
