@@ -55,7 +55,9 @@ const login = async (req, res) => {
 
         if (!validPassword) return res.status(409).send(' 🤷‍♂️Password not correct')
 
-        const token = jwt.sign({ _id: user._id}, process.env.SECRET)
+        const token = jwt.sign({ _id: user._id}, process.env.SECRET,  {expiresIn: '1h'})
+
+        res.cookie('jwt', token, { httpOnly: true, })
 
         res.status(200).send({ status: 'success', token })
 
@@ -64,4 +66,8 @@ const login = async (req, res) => {
     }
 }
 
+
+const logout = (req, res) => {
+
+}
 module.exports = { signup, login}
