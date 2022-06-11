@@ -78,7 +78,9 @@ const logout = (req, res) => {
     const user = await User.findOne({ refreshToken: refreshToken })
 
     if (!user) {
-        
+        res.clearCookie("jwt", { httpOnly: true });
+
+        return res.sendStatus(204);
     }
 }
 module.exports = { signup, login}
