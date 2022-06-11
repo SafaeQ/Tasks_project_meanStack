@@ -83,7 +83,7 @@ const updateTasks = async (req, res) => {
         res.status(200).send({msg: 'updated succefully', data: task })
 
     } catch (error) {
-        
+
         return res.status(500).send({
             success: false,
             message: error
@@ -91,4 +91,4 @@ const updateTasks = async (req, res) => {
     }
 
 }
-module.exports = { getAllTask, createTask, deleteTask, getTaskById}
+module.exports = { getAllTask, createTask, deleteTask, getTaskById, updateTasks}
