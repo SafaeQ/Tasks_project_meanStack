@@ -14,6 +14,11 @@ const Tasks = new mongoose.Schema({
         required: true,
         enum: ['work', 'personal', 'growth']
     },
+    user_id: {
+        type: mongoose.Schema.Types.ObjectId,
+        required: true,
+        ref: 'User'
+    },
     dueDate: {
         type: Date,
         default: Date.now()
