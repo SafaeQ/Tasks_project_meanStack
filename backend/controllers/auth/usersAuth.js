@@ -90,4 +90,5 @@ const logout = (req, res) => {
   
     return res.sendStatus(204);
 }
-module.exports = { signup, login}
+
+module.exports = { signup, login, logout}
