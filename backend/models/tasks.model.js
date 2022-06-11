@@ -10,7 +10,9 @@ const Tasks = new mongoose.Schema({
         required: true
     },
     type: {
-
+        type: String,
+        required: true,
+        enum: ['work', 'personal', 'growth']
     },
     dueDate: {
         type: Date,
