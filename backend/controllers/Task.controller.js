@@ -17,8 +17,8 @@ const getAllTask = async (req, res) => {
 
 const createTask = async (req, res) => {
     try {
+        console.log('req,body');
         const {label, discription, type, dueDate} = req.body
-
         const task = await Task.create({
             label,
             discription,
@@ -59,7 +59,7 @@ const getTaskById = async (req, res) => {
         res.status(200).send(task)
 
     } catch (error) {
-        
+
         res.status(404).send(error)
     }
 }

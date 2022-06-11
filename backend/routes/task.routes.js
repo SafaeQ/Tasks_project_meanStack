@@ -5,11 +5,11 @@ const { getAllTask, createTask, deleteTask, getTaskById } = require('../controll
 
     taskRouter.get('/', getAllTask)
 
-    taskRouter.get('/add', createTask)
+    taskRouter.post('/add', createTask)
 
-    taskRouter.get('/delete', deleteTask)
+    taskRouter.delete('/delete', deleteTask)
 
     taskRouter.get('/:id', getTaskById)
-    
+
 
 module.exports = taskRouter;
