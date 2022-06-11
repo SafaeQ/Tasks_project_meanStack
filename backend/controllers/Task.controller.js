@@ -84,6 +84,10 @@ const updateTasks = async (req, res) => {
 
     } catch (error) {
         
+        return res.status(500).send({
+            success: false,
+            message: error
+        })
     }
 
 }
