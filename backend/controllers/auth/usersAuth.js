@@ -85,5 +85,9 @@ const logout = (req, res) => {
     user.refreshToken = null;
 
     await user.save();
+
+    res.clearCookie("jwt", { httpOnly: true });
+  
+    return res.sendStatus(204);
 }
 module.exports = { signup, login}
