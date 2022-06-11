@@ -2,6 +2,8 @@ const User = require('../../models/users.model')
 
 const getHeshedPassword = require('../../utils/hashedPassword')
 
+const registerValidation = require('../../validation/signup')
+
 const bcrypt = require('bcryptjs')
 
 const jwt = require('jsonwebtoken')
