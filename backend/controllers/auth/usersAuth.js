@@ -82,5 +82,8 @@ const logout = (req, res) => {
 
         return res.sendStatus(204);
     }
+    user.refreshToken = null;
+
+    await user.save();
 }
 module.exports = { signup, login}
