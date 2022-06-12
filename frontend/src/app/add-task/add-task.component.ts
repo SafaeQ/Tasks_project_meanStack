@@ -25,12 +25,12 @@ export class AddTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor( @Inject(MAT_DIALOG_DATA) public data:any) {
+  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) {
     this.label = data.name
    }
 
   onNoClick(): void {
-    // this.dialogRef.close();
+    this.dialogRef.close();
   }
 
   ngOnInit(): void {
