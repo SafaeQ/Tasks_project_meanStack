@@ -38,3 +38,10 @@ mat-toolbar {
 .card-container .card:not(.highlight-card) {
   cursor: pointer;
 }
+.ex-card {
+  max-width: 400px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
