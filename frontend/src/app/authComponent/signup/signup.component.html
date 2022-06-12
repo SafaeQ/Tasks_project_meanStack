@@ -1,9 +1,9 @@
 <mat-card>
     <mat-card-content>
-      <form >
+      <form (submit) = 'signup($event)'>
         <h2>Sign up</h2>
           <mat-form-field>
-            <input matInput placeholder="Full Name" name="full Name" required>
+            <input matInput placeholder="Full Name" name="full Name" (keyup)="setFullName($event)" required>
             <mat-error>
               Please provide a valid full name
             </mat-error>
