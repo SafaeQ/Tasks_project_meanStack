@@ -11,9 +11,9 @@
 
 Run ``npm run start``  for a app file. with the url api `http://localhost:9898/`. 
 
-## Code scaffolding
+## frontend 
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+The frontend of this project worked with Angular version 13.3.7
 
 ## Build
 
