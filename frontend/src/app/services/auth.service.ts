@@ -3,6 +3,8 @@ import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { finalize } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +16,24 @@ export class AuthService {
       }
     }
 
-  constructor(private http:HttpClient, private router: Router) { }
+
+    label:string = "";
+    dueDate:Date = new Date();
+    description:string = "";
+    type:string = "";
+    completed: Boolean = false;
+
+  constructor(private http:HttpClient, private router: Router, public dialog: MatDialog) { }
+
+  openDialog(): void {
+    const dialogRef = this.dialog.open(AddTaskComponent, {
+      width: '250px',
+      data: { label: this.label, dueDate: this.dueDate, descriptoin: this.description,type: this.type, completed: this.completed}
+    });
+    dialogRef.afterClosed().subscribe(res => {
+      this.label = res;
+    });
+  }
 
   login(email:String, password: String): any{
     let loginUrl = `${environment.api_Url}/login`;
