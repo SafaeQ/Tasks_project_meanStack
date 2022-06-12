@@ -20,6 +20,8 @@ export class LoginComponent implements OnInit {
   setEmail(event: any){
     this.email = event.target.value
   }
-  // setPassword
+  setPassword(event: any){
+    this.password = event.target.value
+  }
 
 }
