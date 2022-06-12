@@ -3,7 +3,9 @@
 - This project consist login, signup, logout and CRUD operation for Tasks by using **MEAN Stack**
 ## Backend
 
-the backend of this project worked with node.js version 16.14.2 and express.js, for the database we use mongoDB with ODM mongoose 
+- the backend of this project worked with node.js version 16.14.2 and express.js, for the database we use mongoDB with ODM mongoose 
+
+- and using token (jwt) also bycriptjs for hashing pasword and joi for validation our properties
 
 ## Development server
 
