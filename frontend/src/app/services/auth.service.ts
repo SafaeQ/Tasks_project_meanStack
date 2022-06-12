@@ -2,7 +2,7 @@ import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs';
+import { MatDialog } from '@angular/material/dialog';
 
 @Injectable({
   providedIn: 'root'
@@ -14,7 +14,7 @@ export class AuthService {
       }
     }
 
-  constructor(private http:HttpClient, private router: Router) { }
+  constructor(private http:HttpClient, private router: Router,) { }
 
   login(email:String, password: String): any{
     let loginUrl = `${environment.api_Url}/login`;
@@ -27,9 +27,9 @@ export class AuthService {
   }
 
   // Returns true when user is looged in
-  get isLoggedIn(): boolean{
-    const token: String = window.localStorage.getItem('token')!
-    return token !== 'null' ? false : true
+  isLoggedIn(): boolean{
+    const token: String|null = window.localStorage.getItem('token')
+    return token === null ? false : true
   }
 
   storeUserToken(token: string): void{

@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'
 import { MatOptionModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -23,13 +25,16 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TasksComponent } from './tasks/tasks.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
+import { AddTaskComponent } from './add-task/add-task.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    TasksComponent
+    TasksComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
@@ -49,8 +54,11 @@ import { AuthService } from './services/auth.service';
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
+    MatNativeDateModule,
+    MatDatepickerModule,
+    MatDialogModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -14,15 +14,19 @@ const Tasks = new mongoose.Schema({
         required: true,
         enum: ['work', 'personal', 'growth']
     },
-    user_id: {
-        type: mongoose.Schema.Types.ObjectId,
+    completed: {
+        type: Boolean,
         required: true,
-        ref: 'User'
     },
     dueDate: {
         type: Date,
         default: Date.now()
     }
-})
+},
+    {
+        timestamps: true,
+        versionKey: false,
+    }
+)
 
 module.exports = mongoose.model('Task', Tasks)
