@@ -8,6 +8,12 @@ import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog
 })
 export class AddTaskComponent implements OnInit {
 
+  label:string = "";
+  dueDate:Date = new Date();
+  description:string = "";
+  type:string = "";
+  completed: Boolean = false;
+
   constructor( public dialogRef: MatDialogRef<AddTaskComponent>) { }
 
   onNoClick(): void {
