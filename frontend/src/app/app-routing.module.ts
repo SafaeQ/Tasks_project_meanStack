@@ -1,3 +1,4 @@
+import { TasksComponent } from './tasks/tasks.component';
 import { SignupComponent } from './authComponent/signup/signup.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
@@ -7,6 +8,7 @@ const routes: Routes = [
   {path: '',redirectTo:'login',  pathMatch: 'full'},
   {path: 'login', component: LoginComponent},
   {path: 'signup', component: SignupComponent},
+  {path: 'tasks', component: TasksComponent},
 ];
 
 @NgModule({

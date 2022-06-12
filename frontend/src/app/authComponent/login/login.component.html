@@ -1,24 +1,24 @@
-<div class=" container">
-    <div class=" row">
-        <div class="col-md-6">
-            <div class="card">
-                <div class="text-center">
-                    <h1>Login </h1>
-                    <h6> Enter your information  </h6>
-                </div>
-                <form>
-                    <div class="mb-3">
-                        <label for="exampleInputEmail1" class="form-mabel">Email address</label>
-                        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
-                    </div>
-                    <div class="mb-3">
-                        <label for="exampleInputPassword1" class="form-mabel">Password</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Password">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Login</button>
-                </form>
-                <a style='color:#fff; margin-top: 10px; text-decoration: none;' routerLink="/signup" >if you don't have an account click me</a>
-            </div>
-        </div>
-    </div>
-</div>
+<mat-card>
+  <mat-card-content>
+    <form (submit) = "loginUser($event)">
+      <h2>Login</h2>
+        <mat-form-field>
+          <input matInput placeholder="Email" name="email" (keyup)="setEmail($event)" required>
+          <mat-error>
+            Please provide a valid Email
+          </mat-error>
+        </mat-form-field>
+        <mat-form-field>
+          <input matInput type="password" placeholder="Password" name="password" (keyup)="setPassword($event)" required>
+          <mat-error>
+            Please provide a valid password
+          </mat-error>
+        </mat-form-field>
+        <button mat-raised-button color="accent" type="submit">Login</button>
+    </form>
+  </mat-card-content>
+  <span>
+    you don't have account go to
+    <a style='color:#fff; margin-top: 10px; text-decoration: none;' routerLink="/signup" > signUp</a>
+  </span>
+</mat-card>
