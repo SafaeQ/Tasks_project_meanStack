@@ -27,8 +27,9 @@ export class AddTaskComponent implements OnInit {
 
   constructor( public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) {
     this.label = data.name
-   }
+  }
 
+  // for close btn
   onNoClick(): void {
     this.dialogRef.close();
   }
