@@ -26,10 +26,10 @@ export class AuthService {
     return this.http.post<any>(loginUrl, data, this.headers)
   }
 
-  // Returns true when user is looged in
+
   get isLoggedIn(): boolean{
-    const user = JSON.parse(localStorage.getItem('user')!)
-    return user !== 'null' ? true : false
+    const token: String = window.localStorage.getItem('token')!
+    return token !== 'null' ? false : true
   }
 
   storeUserToken(token: string): void{
