@@ -2,6 +2,7 @@ import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { finalize } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -52,4 +53,9 @@ export class AuthService {
     }
     return this.http.post<any>(registerUrl, data, this.headers)
   }
+
+  logout(){
+    this.http.post<any>(`${environment.api_Url}/logout`, {})
+  }
+
 }
