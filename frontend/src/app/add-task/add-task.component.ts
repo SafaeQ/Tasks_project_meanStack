@@ -7,6 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
+  label:string = "";
+  date:Date = new Date();
+  description:string = "";
+  type:string = "";
+  // completed: Boolean = "";
+
   constructor() { }
 
   ngOnInit(): void {
