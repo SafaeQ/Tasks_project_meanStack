@@ -7,26 +7,15 @@
 
 - and using token (jwt) also bycriptjs for hashing pasword and joi for validation our properties
 
-## Development server
+## Development server backend
 
 Run ``npm run start``  for a app file. with the url api `http://localhost:9898/`. 
 
 ## frontend 
 
-The frontend of this project worked with Angular version 13.3.7
+The frontend of this project worked with Angular version 13.3.7 and using material ui
 
-## Build
+## Development server frontend
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
 
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
