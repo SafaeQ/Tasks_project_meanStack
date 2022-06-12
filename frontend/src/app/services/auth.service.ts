@@ -2,9 +2,7 @@ import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { finalize } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
-import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Injectable({
   providedIn: 'root'
@@ -16,7 +14,7 @@ export class AuthService {
       }
     }
 
-  constructor(private http:HttpClient, private router: Router, public dialog: MatDialog) { }
+  constructor(private http:HttpClient, private router: Router,) { }
 
   login(email:String, password: String): any{
     let loginUrl = `${environment.api_Url}/login`;

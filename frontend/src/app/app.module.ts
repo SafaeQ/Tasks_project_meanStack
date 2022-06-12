@@ -26,6 +26,7 @@ import { TasksComponent } from './tasks/tasks.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AddTaskComponent } from './add-task/add-task.component';
+import { MatDialogModule } from '@angular/material/dialog';
 
 @NgModule({
   declarations: [
@@ -54,9 +55,10 @@ import { AddTaskComponent } from './add-task/add-task.component';
     MatSelectModule,
     MatOptionModule,
     MatNativeDateModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatDialogModule
   ],
-  providers: [AuthGuard, AuthService],
+  providers: [AuthGuard, AuthService,],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

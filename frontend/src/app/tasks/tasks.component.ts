@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { MatDialog } from '@angular/material/dialog';
+import { AddTaskComponent } from '../add-task/add-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -7,9 +9,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TasksComponent implements OnInit {
 
-  constructor() { }
+  constructor(private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
   }
 
+  openDialog(){
+    this.dialogRef.open(AddTaskComponent,{
+      data : {
+        name : 'Samuel'
+      }
+    });
+  }
 }
