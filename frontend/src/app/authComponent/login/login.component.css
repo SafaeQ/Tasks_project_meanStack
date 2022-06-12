@@ -10,8 +10,8 @@ mat-card {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  background: red;
-  background: linear-gradient(90deg, rgb(84, 220, 235) 0%, rgb(226, 145, 233) 100%);
+  background: linear-gradient(90deg, #FB4570 0%,#EFEBE0 100%);
+  opacity: 0.9
 }
 
 mat-form-field {
