@@ -27,9 +27,10 @@ export class LoginComponent implements OnInit {
 
   loginUser(event: any){
     event.preventDefault();
-    this.auth.login(this.email, this.password).subscribe{(res: any, err: any)=> {
-      window.localStorage.getItem(`${environment.app_id}_token`, res.body.token)
-    }}
+    this.auth.login(this.email, this.password).subscribe( (res: any, err: any)=> {
+      this.auth.storeUserToken(res.token);
+      this.auth.navigateToTasks();
+    })
   }
 
 }
