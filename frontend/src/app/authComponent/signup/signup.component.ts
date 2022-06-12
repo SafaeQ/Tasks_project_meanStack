@@ -9,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class SignupComponent implements OnInit {
 
-  public fullName = ""
-  public email = ''
-  public password= ''
+  fullName:String = ""
+  email:String = ""
+  password:String= ""
 
   constructor(private auth: AuthService, private router:Router) { }
 
@@ -19,20 +19,21 @@ export class SignupComponent implements OnInit {
   }
 
   setFullName (event: any){
-    this.fullName = event.target.fullName
+    this.fullName = event.target.value as String
   }
   setEmail (event: any){
-    this.email = event.target.email
+    this.email = event.target.value as String
   }
   setPassword (event: any){
-    this.password = event.target.password
+    this.password = event.target.value as String
   }
 
   signup(event: any){
     event.preventDefault();
+    console.log("Register: ",this.fullName, this.email, this.password);
+
     this.auth.register(this.fullName, this.email, this.password).subscribe( (res: any, err: any) => {
-      this.auth.storeUserToken(res.token)
-      this.auth.navigateToTasks()
+      this.auth.navigateToLogin()
     })
   }
 

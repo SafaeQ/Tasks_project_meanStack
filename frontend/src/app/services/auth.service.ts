@@ -33,10 +33,12 @@ export class AuthService {
   navigateToTasks():void {
     this.router.navigateByUrl('/tasks')
   }
+  navigateToLogin():void {
+    this.router.navigateByUrl('/login')
+  }
 
-  register(fullName: string, email: string, password: string): any{
+  register(fullName: String, email: String, password: String): any{
     let registerUrl = `${environment.api_Url}/register`
-
     let data = {
       fullName: fullName,
       email: email,
