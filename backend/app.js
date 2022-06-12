@@ -15,10 +15,9 @@ app.use(bodyParser.json());
 
 app.use(bodyParser.urlencoded({extended: true}))
 
-// app.use(cors({ origin: true }))
+app.use(cors({ origin: true }))
 
-app.use(cors());
-app.options('*', cors());
+
 // routes
 const userRouter = require('./routes/userAuth.routes')
 
