@@ -23,13 +23,15 @@ import { MatFormFieldModule } from '@angular/material/form-field';
 import { TasksComponent } from './tasks/tasks.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
+import { AddTaskComponent } from './add-task/add-task.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     SignupComponent,
     LoginComponent,
-    TasksComponent
+    TasksComponent,
+    AddTaskComponent
   ],
   imports: [
     BrowserModule,
