@@ -1,3 +1,4 @@
+import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
@@ -5,11 +6,18 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
+  
 
   constructor(private http:HttpClient) { }
 
   login(email:String, password: String): any{
+    let loginUrl = `${environment.URL}/login`;
 
-    return this.http.post<any>(`/login`, {"email": email, "password": password}, { observe: 'response'})
+    let data = {
+      email: email,
+      password:password
+    }
+
+    return this.http.post<any>(loginUrl, data, this.headers)
   }
 }

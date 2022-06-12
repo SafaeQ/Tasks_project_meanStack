@@ -1,3 +1,4 @@
+import { environment } from './../../../environments/environment';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth.service';
@@ -22,6 +23,13 @@ export class LoginComponent implements OnInit {
   }
   setPassword(event: any){
     this.password = event.target.value
+  }
+
+  loginUser(event: any){
+    event.preventDefault();
+    this.auth.login(this.email, this.password).subscribe{(res: any, err: any)=> {
+      window.localStorage.getItem(`${environment.app_id}_token`, res.body.token)
+    }}
   }
 
 }
