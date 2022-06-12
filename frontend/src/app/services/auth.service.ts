@@ -35,7 +35,7 @@ export class AuthService {
   }
 
   register(fullName: string, email: string, password: string): any{
-    let registerUrl = `${environment.api_Url}/signup`
+    let registerUrl = `${environment.api_Url}/register`
 
     let data = {
       fullName: fullName,
