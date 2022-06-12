@@ -27,9 +27,9 @@ export class AuthService {
   }
 
   // Returns true when user is looged in
-  get isLoggedIn(): boolean{
-    const token: String = window.localStorage.getItem('token')!
-    return token !== 'null' ? false : true
+  isLoggedIn(): boolean{
+    const token: String|null = window.localStorage.getItem('token')
+    return token === null ? false : true
   }
 
   storeUserToken(token: string): void{
