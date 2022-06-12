@@ -1,0 +1,13 @@
+mat-toolbar {
+  background: #FFAEBC;
+}
+
+.content {
+  display: flex;
+  margin: 82px auto 32px;
+  padding: 0 16px;
+  max-width: 960px;
+  flex-direction: column;
+  align-items: center;
+}
+
