@@ -19,7 +19,7 @@ export class AddTaskComponent implements OnInit {
   type:string = "";
   completed: Boolean = false;
 
-  types: TypeTask[] = [
+  typess: TypeTask[] = [
     {value: 'work-0', viewValue: 'Work'},
     {value: 'personnel-1', viewValue: 'Personnel'},
     {value: 'growth-2', viewValue: 'Growth'},
