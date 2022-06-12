@@ -6,7 +6,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class AuthService {
-  
+    private headers = {
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }
 
   constructor(private http:HttpClient) { }
 
