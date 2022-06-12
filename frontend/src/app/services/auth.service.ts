@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { environment } from './../../environments/environment';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -12,10 +13,10 @@ export class AuthService {
       }
     }
 
-  constructor(private http:HttpClient) { }
+  constructor(private http:HttpClient, private router: Router) { }
 
   login(email:String, password: String): any{
-    let loginUrl = `${environment.URL}/login`;
+    let loginUrl = `${environment.api_Url}/login`;
 
     let data = {
       email: email,
@@ -23,5 +24,13 @@ export class AuthService {
     }
 
     return this.http.post<any>(loginUrl, data, this.headers)
+  }
+
+  storeUserToken(token: string): void{
+    localStorage.setItem('token', token);
+  }
+
+  navigateToTasks():void {
+    this.router.navigateByUrl('/tasks')
   }
 }
