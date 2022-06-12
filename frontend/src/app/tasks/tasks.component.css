@@ -44,4 +44,5 @@ mat-toolbar {
   flex-wrap: wrap;
   justify-content: center;
   margin-top: 16px;
+  margin-left: 120px;
 }
