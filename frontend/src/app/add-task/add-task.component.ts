@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
 
 @Component({
   selector: 'app-add-task',
@@ -7,13 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class AddTaskComponent implements OnInit {
 
-  label:string = "";
-  date:Date = new Date();
-  description:string = "";
-  type:string = "";
-  // completed: Boolean = "";
+  constructor( public dialogRef: MatDialogRef<AddTaskComponent>) { }
 
-  constructor() { }
+  onNoClick(): void {
+    this.dialogRef.close();
+  }
 
   ngOnInit(): void {
   }
