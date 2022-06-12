@@ -22,11 +22,10 @@ export class AuthService {
       email: email,
       password:password
     }
-
     return this.http.post<any>(loginUrl, data, this.headers)
   }
 
-
+  // Returns true when user is looged in
   get isLoggedIn(): boolean{
     const token: String = window.localStorage.getItem('token')!
     return token !== 'null' ? false : true
@@ -39,6 +38,7 @@ export class AuthService {
   navigateToTasks():void {
     this.router.navigateByUrl('/tasks')
   }
+
   navigateToLogin():void {
     this.router.navigateByUrl('/login')
   }
