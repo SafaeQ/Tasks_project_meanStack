@@ -21,12 +21,12 @@ const Tasks = new mongoose.Schema({
     dueDate: {
         type: Date,
         default: Date.now()
-    },
-    timestamps: {
-        createdAt: 'created_at', 
-        updatedAt: 'updated_at' 
-}
-}
+    }
+},
+    {
+        timestamps: true,
+        versionKey: false,
+    }
 )
 
 module.exports = mongoose.model('Task', Tasks)
