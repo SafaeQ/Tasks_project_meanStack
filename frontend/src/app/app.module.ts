@@ -11,6 +11,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatTableModule } from '@angular/material/table';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import { MatSelectModule } from '@angular/material/select';
+import { MatDatepickerModule } from '@angular/material/datepicker';
+import { MatNativeDateModule } from '@angular/material/core'
 import { MatOptionModule } from '@angular/material/core';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -51,6 +53,8 @@ import { AddTaskComponent } from './add-task/add-task.component';
     MatSlideToggleModule,
     MatSelectModule,
     MatOptionModule,
+    MatNativeDateModule,
+    MatDatepickerModule
   ],
   providers: [AuthGuard, AuthService],
   bootstrap: [AppComponent]
