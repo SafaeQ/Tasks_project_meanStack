@@ -43,6 +43,7 @@ mat-toolbar {
   display: flex;
   flex-direction: row;
   justify-content: space-around;
+  flex-wrap: wrap;
   margin: auto;
   margin: 50px;
 }
