@@ -1,29 +1,23 @@
 <mat-card>
     <mat-card-content>
-      <form #loginForm="ngForm" >
+      <form (submit) = 'signup($event)'>
         <h2>Sign up</h2>
-          <!-- <mat-error >
-              The username and password were not recognized
-          </mat-error> -->
           <mat-form-field>
-            <input matInput placeholder="Full Name" name="full Name" required>
+            <input matInput placeholder="Full Name" name="full Name" (keyup)="setFullName($event)" required>
             <mat-error>
               Please provide a valid full name
             </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput placeholder="Email" name="email" required>
+            <input matInput placeholder="Email" name="email" (keyup)="setEmail($event)" required>
             <mat-error>
               Please provide a valid Email
             </mat-error>
           </mat-form-field>
           <mat-form-field>
-            <input matInput type="password" placeholder="Password" name="password" required>
-            <mat-error>
-              Please provide a valid password
-            </mat-error>
+            <input matInput type="password" placeholder="Password" name="password" (keyup)="setPassword($event)" required>
           </mat-form-field>
-          <button mat-raised-button color="accent">Sign up</button>
+          <button mat-raised-button color="accent" type="submit" >Sign up</button>
       </form>
     </mat-card-content>
     <span>

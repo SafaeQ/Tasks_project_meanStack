@@ -33,4 +33,15 @@ export class AuthService {
   navigateToTasks():void {
     this.router.navigateByUrl('/tasks')
   }
+
+  register(fullName: string, email: string, password: string): any{
+    let registerUrl = `${environment.api_Url}/register`
+
+    let data = {
+      fullName: fullName,
+      email: email,
+      password: password
+    }
+    return this.http.post<any>(registerUrl, data, this.headers)
+  }
 }
