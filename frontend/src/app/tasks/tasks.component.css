@@ -55,3 +55,7 @@ mat-toolbar {
   justify-content: center;
   margin-top: 16px;
 }
+mat-card-subtitle{
+  display: flex;
+  flex-direction: row;
+}
