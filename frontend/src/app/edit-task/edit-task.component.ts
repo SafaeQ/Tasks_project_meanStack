@@ -1,4 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+
+interface TypeTask {
+  value: string;
+  viewValue: string;
+}
 
 @Component({
   selector: 'app-edit-task',
@@ -7,9 +13,20 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EditTaskComponent implements OnInit {
 
-  constructor() { }
+  types_: TypeTask[] = [
+    {value: 'work-0', viewValue: 'Work'},
+    {value: 'personnel-1', viewValue: 'Personnel'},
+    {value: 'growth-2', viewValue: 'Growth'},
+  ];
+
+  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { }
 
   ngOnInit(): void {
   }
+
+    // for close btn
+    onClose(): void {
+      this.dialogRef.close();
+    }
 
 }
