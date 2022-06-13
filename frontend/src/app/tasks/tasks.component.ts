@@ -13,26 +13,13 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 export class TasksComponent implements OnInit {
 
   tasks: any;
+
   constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
       this.tasks = data;
       console.log(data);
-    })
-  }
-
-// submit data of tasks
-  submitData(value: any) {
-    let body = {
-      label: value.label,
-      discription: value.discription,
-      type: value.type,
-      dueDate: value.dueDate,
-    }
-    this.taskService.createTask(body)
-    .subscribe(response => {
-      console.log(response)
     })
   }
 

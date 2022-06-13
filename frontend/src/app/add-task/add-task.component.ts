@@ -1,5 +1,6 @@
 import { Component, Inject, OnInit } from '@angular/core';
 import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { TasksService } from '../services/tasks.service';
 
 interface TypeTask {
   value: string;
@@ -13,20 +14,27 @@ interface TypeTask {
 
 export class AddTaskComponent implements OnInit {
 
-  label:string = "";
-  dueDate:Date = new Date();
-  description:string = "";
-  type:string = "";
-  completed: Boolean = false;
-
   types_: TypeTask[] = [
     {value: 'work-0', viewValue: 'Work'},
     {value: 'personnel-1', viewValue: 'Personnel'},
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) {
-    this.label = data.name
+  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
+  }
+
+  // submit data of tasks
+  submitData(value: any) {
+    let body = {
+      label: value.label,
+      discription: value.discription,
+      type: value.type,
+      dueDate: value.dueDate,
+    }
+    this.taskService.createTask(body)
+    .subscribe(response => {
+      console.log(response)
+    })
   }
 
   // for close btn
