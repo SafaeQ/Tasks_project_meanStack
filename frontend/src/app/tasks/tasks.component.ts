@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -14,11 +15,18 @@ export class TasksComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  openDialog(){
+  openAddBtn(){
     this.dialogRef.open(AddTaskComponent,{
       data : {
         name : 'Samuel'
       }
     });
+  }
+  openEditBtn(){
+    this.dialogRef.open(EditTaskComponent, {
+      data: {
+        name: 'safa'
+      }
+    })
   }
 }
