@@ -1,3 +1,4 @@
+import { AuthService } from './auth.service';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 })
 export class TasksService {
 
-  constructor(private http:HttpClient, private router: Router,) { }
+  constructor(private http:HttpClient, private router: Router, private auth: AuthService) { }
 
 
   public getAllTasks(): Observable<any>{

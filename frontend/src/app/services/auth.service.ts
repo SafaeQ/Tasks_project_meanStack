@@ -34,8 +34,8 @@ export class AuthService {
   storeUserToken(token: string): void{
     localStorage.setItem('token', token);
   }
-  getUserToken(): void{
-    localStorage.getItem('token');
+  getUserToken(): String|null {
+    return localStorage.getItem('token');
   }
 
   navigateToTasks():void {
