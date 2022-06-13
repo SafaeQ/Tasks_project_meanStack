@@ -23,16 +23,19 @@ export class AddTaskComponent implements OnInit {
   constructor( public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
   }
 
+  task = {}
+
   // submit data of tasks
-  submitData(value: any) {
-    let body = {
-      label: value.label,
-      discription: value.discription,
-      type: value.type,
-      dueDate: value.dueDate,
-    }
-    this.taskService.createTask(body)
+  submitData() {
+    // let body = {
+    //   label: value.label,
+    //   discription: value.discription,
+    //   type: value.type,
+    //   dueDate: value.dueDate,
+    // }
+    this.taskService.createTask(this.task)
     .subscribe(response => {
+      this.task = response
       console.log(response)
     })
   }
