@@ -29,7 +29,7 @@ export class TasksComponent implements OnInit {
       }
     })
   }
-  onLougout(){
+  onLogout(){
     localStorage.removeItem('token')
   }
 }
