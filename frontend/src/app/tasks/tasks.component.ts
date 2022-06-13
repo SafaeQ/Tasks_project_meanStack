@@ -30,11 +30,7 @@ export class TasksComponent implements OnInit {
 
 // open button modal edit
   openEditBtn(){
-    this.dialogRef.open(EditTaskComponent, {
-      data: {
-        name: 'safa'
-      }
-    })
+    this.dialogRef.open(EditTaskComponent)
   }
 
 // for button logout
