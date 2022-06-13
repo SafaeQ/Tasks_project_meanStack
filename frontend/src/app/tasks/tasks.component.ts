@@ -25,11 +25,7 @@ export class TasksComponent implements OnInit {
 
   // open the button modal add
   openAddBtn(){
-    this.dialogRef.open(AddTaskComponent,{
-      data : {
-        name : 'Samuel'
-      }
-    });
+    this.dialogRef.open(AddTaskComponent);
   }
 
 // open button modal edit
