@@ -30,8 +30,6 @@ export class SignupComponent implements OnInit {
 
   signup(event: any){
     event.preventDefault();
-    console.log("Register: ",this.fullName, this.email, this.password);
-
     this.auth.register(this.fullName, this.email, this.password).subscribe( (res: any, err: any) => {
       this.auth.navigateToLogin()
     })
