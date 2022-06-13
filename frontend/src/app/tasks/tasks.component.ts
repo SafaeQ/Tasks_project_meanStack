@@ -1,3 +1,4 @@
+import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
@@ -10,7 +11,7 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 })
 export class TasksComponent implements OnInit {
 
-  constructor(private dialogRef : MatDialog) { }
+  constructor(private auth: AuthService,private dialogRef : MatDialog) { }
 
   ngOnInit(): void {
   }
@@ -31,5 +32,7 @@ export class TasksComponent implements OnInit {
   }
   onLogout(){
     localStorage.removeItem('token')
+    console.log('logout');
+    this.auth.navigateToLogin()
   }
 }
