@@ -59,7 +59,7 @@ const login = async (req, res) => {
 
         res.cookie('jwt', token, { httpOnly: true, })
 
-        res.status(200).send({ status: 'success', token })
+        res.status(200).send({ status: 'success', token: token })
 
     } catch (error) {
         res.status(404).send(error)

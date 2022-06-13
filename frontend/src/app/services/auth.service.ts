@@ -9,7 +9,7 @@ import { Injectable } from '@angular/core';
 export class AuthService {
     private headers = {
       headers: {
-        'Content-Type': 'application/json'
+        'Content-Type': 'application/json',
       }
     }
 
@@ -33,6 +33,9 @@ export class AuthService {
 
   storeUserToken(token: string): void{
     localStorage.setItem('token', token);
+  }
+  getUserToken(): void{
+    localStorage.getItem('token');
   }
 
   navigateToTasks():void {
