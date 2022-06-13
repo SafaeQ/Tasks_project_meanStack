@@ -59,3 +59,13 @@ mat-card-subtitle{
   display: flex;
   flex-direction: row;
 }
+
+.btn-logout {
+  display: flex;
+  margin: 82px;
+  position: relative;
+  left: 70%;
+  padding: 0 16px;
+  max-width: 960px;
+
+}
