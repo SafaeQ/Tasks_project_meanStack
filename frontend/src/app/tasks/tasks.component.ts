@@ -5,14 +5,6 @@ import { MatDialog } from '@angular/material/dialog';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
 
-export interface Task {
-  id: number;
-  label: string;
-  discription: string;
-  type: string;
-  dueDate: Date;
-  }
-
 @Component({
   selector: 'app-tasks',
   templateUrl: './tasks.component.html',
@@ -20,12 +12,12 @@ export interface Task {
 })
 export class TasksComponent implements OnInit {
 
-  tasks: Task[] = []
+  tasks: any;
   constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
-      // this.tasks = data;
+      this.tasks = data;
       console.log(data);
     })
   }
