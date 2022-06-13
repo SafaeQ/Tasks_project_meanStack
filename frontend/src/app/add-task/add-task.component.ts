@@ -14,6 +14,14 @@ interface TypeTask {
 
 export class AddTaskComponent implements OnInit {
 
+    body = {
+    label: '',
+    discription: '',
+    type: '',
+    dueDate: '',
+
+  }
+
   types_: TypeTask[] = [
     {value: 'work-0', viewValue: 'Work'},
     {value: 'personnel-1', viewValue: 'Personnel'},
@@ -27,13 +35,13 @@ export class AddTaskComponent implements OnInit {
 
   // submit data of tasks
   submitData() {
-    // let body = {
-    //   label: value.label,
-    //   discription: value.discription,
-    //   type: value.type,
-    //   dueDate: value.dueDate,
-    // }
-    this.taskService.createTask(this.task)
+    const data = {
+      label : this.body.label,
+      discription : this.body.discription,
+      dueDate : this.body.dueDate,
+      type : this.body.type,
+    }
+    this.taskService.createTask(data)
     .subscribe(response => {
       console.log(response)
     })

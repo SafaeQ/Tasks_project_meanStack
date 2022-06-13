@@ -1,15 +1,14 @@
-<form (ngSubmit)="submitData()">
   <h1 mat-dialog-title>Add new Task </h1>
 <div mat-dialog-content class="container">
   <p>What will your task be again ?</p>
 
   <mat-form-field appearance="fill">
     <mat-label>Label </mat-label>
-    <input matInput name="label" >
+    <input matInput [(ngModel)]="body.label">
   </mat-form-field>
   <mat-form-field class="example-full-width" appearance="fill">
     <mat-label>Choose a date</mat-label>
-    <input matInput [matDatepicker]="picker" name="dueDate">
+    <input matInput [matDatepicker]="picker" [(ngModel)]="body.dueDate">
     <mat-hint>MM/DD/YYYY</mat-hint>
     <mat-datepicker-toggle matSuffix [for]="picker">
     </mat-datepicker-toggle>
@@ -18,18 +17,17 @@
   <mat-form-field appearance="fill">
     <mat-label>Type</mat-label>
     <mat-select>
-      <mat-option *ngFor="let type of types_" [value]="type.value">
+      <mat-option *ngFor="let type of types_" [value]="type.value" [(ngModel)]="body.type">
         {{type.viewValue}}
       </mat-option>
     </mat-select>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
-    <input matInput naame="diescription">
+    <input matInput [(ngModel)]="body.discription">
   </mat-form-field>
 </div>
 <div mat-dialog-actions class="btn">
   <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button cdkFocusInitial>Add</button>
+  <button mat-button cdkFocusInitial (click)="submitData()" >Add</button>
 </div>
-</form>
