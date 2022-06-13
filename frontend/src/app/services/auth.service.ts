@@ -17,7 +17,6 @@ export class AuthService {
 
   login(email:String, password: String): any{
     let loginUrl = `${environment.api_Url}/login`;
-
     let data = {
       email: email,
       password:password
