@@ -10,6 +10,7 @@ export class TokenInterceptorService implements HttpInterceptor {
 
   constructor( private auth: AuthService) { }
   intercept(req: HttpRequest<any>, next: HttpHandler): Observable<HttpEvent<any>> {
+
     let token = this.auth.getUserToken()
 
     let jwtToken = req.clone({
