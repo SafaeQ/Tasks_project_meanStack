@@ -8,7 +8,7 @@ import { EditTaskComponent } from '../edit-task/edit-task.component';
 export interface Task {
   id: number;
   label: string;
-  description: string;
+  discription: string;
   type: string;
   dueDate: Date;
   }
@@ -27,7 +27,6 @@ export class TasksComponent implements OnInit {
     this.taskService.getAllTasks().subscribe((data: Task[])=>{
       this.tasks = data;
       console.log(this.tasks);
-
     })
   }
 
