@@ -24,7 +24,7 @@ const createTask = async (req, res) => {
             discription,
             type,
             dueDate,
-            user_id
+            
         })
 
         const result = await task.save()

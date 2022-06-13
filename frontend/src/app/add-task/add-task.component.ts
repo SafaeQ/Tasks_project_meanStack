@@ -35,7 +35,6 @@ export class AddTaskComponent implements OnInit {
     // }
     this.taskService.createTask(this.task)
     .subscribe(response => {
-      this.task = response
       console.log(response)
     })
   }
