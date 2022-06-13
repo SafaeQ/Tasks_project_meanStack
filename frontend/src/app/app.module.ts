@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { HttpClientModule} from '@angular/common/http'
+import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
 import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -28,6 +28,7 @@ import { AuthService } from './services/auth.service';
 import { AddTaskComponent } from './add-task/add-task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditTaskComponent } from './edit-task/edit-task.component';
+import { TokenInterceptorService } from './services/token-interceptor.service';
 
 @NgModule({
   declarations: [
@@ -60,7 +61,7 @@ import { EditTaskComponent } from './edit-task/edit-task.component';
     MatDatepickerModule,
     MatDialogModule
   ],
-  providers: [AuthGuard, AuthService,],
+  providers: [AuthGuard, AuthService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
