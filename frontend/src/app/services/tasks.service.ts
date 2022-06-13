@@ -1,4 +1,3 @@
-import { Task } from './../tasks/tasks.component';
 import { Observable } from 'rxjs';
 import { environment } from './../../environments/environment';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
