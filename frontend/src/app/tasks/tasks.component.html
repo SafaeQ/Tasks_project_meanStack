@@ -18,21 +18,19 @@
   <mat-card class="ex-card" *ngFor="let task of tasks">
     <mat-card-header>
       <mat-card-title>{{ task.label }}</mat-card-title>
-      <mat-card-subtitle><span > Date:</span>{{ task.dueDate }} </mat-card-subtitle>
-      <mat-card-subtitle> {{ task.type }} </mat-card-subtitle>
+      <mat-card-subtitle><span id="gar"> Date : </span> {{ task.dueDate }} </mat-card-subtitle>
+      <mat-card-subtitle><span id="gar"> Type : </span> {{ task.type }} </mat-card-subtitle>
     </mat-card-header>
     <mat-card-content>
       <p>
         {{ task.discription}}
       </p>
     </mat-card-content>
-    <div class="form-check my-2">
-      <label class="form-check-label">
-        <input type="checkbox" class="form-check-input">
-        Completed
-      </label>
-    </div>
     <mat-card-actions>
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Completed
+        </label>
       <button mat-stroked-button color="accent" (click)="openEditBtn()" >Edit</button>
       <button mat-stroked-button color="accent" (click)="deleteTask(task._id)">Delete</button>
     </mat-card-actions>

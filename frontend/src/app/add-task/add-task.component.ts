@@ -3,14 +3,14 @@ import { Component, OnInit, NgModule } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { TasksService } from '../services/tasks.service';
 
-// export interface Task {
-//   id: number;
-//   label: string;
-//   discription: string;
-//   type: string;
-//   dueDate: Date;
-//   selectedType: string;
-//   }
+export interface Task {
+  id: number;
+  label: string;
+  discription: string;
+  type: string;
+  dueDate: Date;
+  selectedType: string;
+  }
 interface TypeTask {
   value: string;
   viewValue: string;
@@ -36,10 +36,10 @@ export class AddTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
+  constructor( private router:Router, public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
   }
 
-  task = {}
+  tasks: Task[] = []
 
   getOptionValue() {
   }
@@ -53,8 +53,10 @@ export class AddTaskComponent implements OnInit {
       type : this.body.type,
     }
     this.taskService.createTask(data)
-    .subscribe(response => {
-      // console.log(response)
+    .subscribe(task => {
+      console.log(task)
+      this.tasks = [task, ...this.tasks]
+      this.router.navigateByUrl('/tasks')
     })
   }
 
