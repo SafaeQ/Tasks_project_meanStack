@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, NgModule } from '@angular/core';
 import {MatDialogRef} from '@angular/material/dialog';
 import { TasksService } from '../services/tasks.service';
@@ -25,11 +26,7 @@ export class AddTaskComponent implements OnInit {
     body = {
     label: '',
     discription: '',
-    type:  {
-      work:'Work',
-      personnel:'Personnel',
-      growth:'Growth'
-    },
+    type: 'work',
     dueDate: '',
   }
 
@@ -57,10 +54,8 @@ export class AddTaskComponent implements OnInit {
     }
     this.taskService.createTask(data)
     .subscribe(response => {
-      console.log(response)
+      // console.log(response)
     })
-    console.log(data);
-
   }
 
   // for close btn
