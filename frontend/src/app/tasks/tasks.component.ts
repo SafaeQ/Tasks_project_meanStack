@@ -3,8 +3,6 @@ import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
-import { AddTaskComponent } from '../add-task/add-task.component';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -15,7 +13,7 @@ export class TasksComponent implements OnInit {
 
   tasks: any;
 
-  constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService, private router: Router) { }
+  constructor(private auth: AuthService, public taskService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
@@ -25,7 +23,6 @@ export class TasksComponent implements OnInit {
 
   // delete task
   deleteTask(id){
-    console.log(id)
     this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
   }
 
