@@ -1,6 +1,6 @@
+import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Component, OnInit } from '@angular/core';
 
 interface TypeTask {
   value: string;
@@ -20,7 +20,7 @@ export class EditTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any,public taskService: TasksService) { }
+  constructor(private router: Router, public taskService: TasksService) { }
 
   ngOnInit(): void {
   }
@@ -32,9 +32,9 @@ export class EditTaskComponent implements OnInit {
     // })
 
   }
-// for close btn
-  onClose(): void {
-    this.dialogRef.close();
+
+  backToTasks(): void {
+    this.router.navigateByUrl('/tasks');
   }
 
 }
