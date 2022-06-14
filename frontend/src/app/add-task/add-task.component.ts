@@ -1,5 +1,6 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, NgModule } from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
+import { TasksService } from '../services/tasks.service';
 
 interface TypeTask {
   value: string;
@@ -13,11 +14,16 @@ interface TypeTask {
 
 export class AddTaskComponent implements OnInit {
 
-  label:string = "";
-  dueDate:Date = new Date();
-  description:string = "";
-  type:string = "";
-  completed: Boolean = false;
+    body = {
+    label: '',
+    discription: '',
+    type:  {
+      work:'Work',
+      personnel:'Personnel',
+      growth:'Growth'
+    },
+    dueDate: '',
+  }
 
   types_: TypeTask[] = [
     {value: 'work-0', viewValue: 'Work'},
@@ -25,8 +31,28 @@ export class AddTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) {
-    this.label = data.name
+  constructor( public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
+  }
+
+  task = {}
+
+  getOptionValue() {
+  }
+
+  // submit data of tasks
+  submitData() {
+    const data = {
+      label : this.body.label,
+      discription : this.body.discription,
+      dueDate : this.body.dueDate,
+      type : this.body.type,
+    }
+    this.taskService.createTask(data)
+    .subscribe(response => {
+      console.log(response)
+    })
+    console.log(data);
+
   }
 
   // for close btn

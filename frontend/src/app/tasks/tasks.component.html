@@ -26,6 +26,12 @@
         {{ task.discription}}
       </p>
     </mat-card-content>
+    <div class="form-check my-2">
+      <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+        Completed
+      </label>
+    </div>
     <mat-card-actions>
       <button mat-stroked-button color="accent" (click)="openEditBtn()" >Edit</button>
       <button mat-stroked-button color="accent">Delete</button>
@@ -45,6 +51,12 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
+      <div class="form-check">
+        <label class="form-check-label">
+          <input type="checkbox" class="form-check-input">
+          Completed
+        </label>
+      </div>
       <button mat-stroked-button color="accent">Edit</button>
       <button mat-stroked-button color="accent">Delete</button>
     </mat-card-actions>

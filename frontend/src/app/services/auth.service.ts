@@ -17,7 +17,6 @@ export class AuthService {
 
   login(email:String, password: String): any{
     let loginUrl = `${environment.api_Url}/login`;
-
     let data = {
       email: email,
       password:password
@@ -31,11 +30,11 @@ export class AuthService {
     return token === null ? false : true
   }
 
-  storeUserToken(token: string): void{
-    localStorage.setItem('token', token);
+  storeUserToken(token: string){
+    return localStorage.setItem('token', token);
   }
-  getUserToken(): void{
-    localStorage.getItem('token');
+  getUserToken(): String|null {
+    return localStorage.getItem('token');
   }
 
   navigateToTasks():void {

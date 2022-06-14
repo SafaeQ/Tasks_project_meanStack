@@ -1,6 +1,6 @@
+import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { HttpClientModule, HTTP_INTERCEPTORS} from '@angular/common/http'
-import { BrowserModule } from '@angular/platform-browser';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
@@ -14,13 +14,12 @@ import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'
 import { MatOptionModule } from '@angular/material/core';
-
+import { FormsModule , ReactiveFormsModule} from '@angular/forms';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './authComponent/signup/signup.component';
 import { LoginComponent } from './authComponent/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { FormsModule } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { TasksComponent } from './tasks/tasks.component';
 import { AuthGuard } from './guard/auth.guard';
@@ -50,6 +49,7 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     MatToolbarModule,
     MatInputModule,
     MatCardModule,
+    ReactiveFormsModule,
     MatMenuModule,
     MatIconModule,
     MatButtonModule,
