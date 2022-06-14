@@ -8,12 +8,7 @@ export interface Task {
   discription: string;
   type: string;
   dueDate: Date;
-  selectedType: string;
   }
-interface TypeTask {
-  value: string;
-  viewValue: string;
-}
 @Component({
   selector: 'app-add-task',
   templateUrl: './add-task.component.html',
@@ -25,23 +20,14 @@ export class AddTaskComponent implements OnInit {
     body = {
     label: '',
     discription: '',
-    type: 'work',
+    type: '',
     dueDate: '',
   }
-
-  types_: TypeTask[] = [
-    {value: 'work-0', viewValue: 'Work'},
-    {value: 'personnel-1', viewValue: 'Personnel'},
-    {value: 'growth-2', viewValue: 'Growth'},
-  ];
 
   constructor( private router:Router, public taskService: TasksService) {
   }
 
   tasks: Task[] = []
-
-  getOptionValue() {
-  }
 
   // submit data of tasks
   submitData() {
