@@ -1,3 +1,4 @@
+import { TasksService } from './../services/tasks.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
@@ -19,14 +20,16 @@ export class EditTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { }
+  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any,public taskService: TasksService) { }
 
   ngOnInit(): void {
   }
 
 
   editTask(){
-    // this.taskService.updateData().subscribe(task => {
+    // this.taskService.updateTask().subscribe(task => {
+
+    // })
 
   }
 // for close btn

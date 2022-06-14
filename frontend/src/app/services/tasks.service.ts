@@ -21,7 +21,7 @@ export class TasksService {
     return this.http.post<any>(url, task)
   }
 
-  updateData(data: any, id: string): Observable<any> {
+  updateTask(data: any, id: string): Observable<any> {
     let url: string = `${environment.api_Url}/${id}`
     return this.http.put(url, data)
   }

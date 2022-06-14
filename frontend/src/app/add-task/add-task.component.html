@@ -16,8 +16,8 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Type</mat-label>
-    <mat-select>
-      <mat-option  id="select" *ngFor="let type of types_" [value]="type.value" [(ngModel)]="body.type">
+    <mat-select [(ngModel)]="selectedType">
+      <mat-option  id="select" *ngFor="let type of types_" [value]="type.viewValue">
         {{type.viewValue}}
       </mat-option>
     </mat-select>
