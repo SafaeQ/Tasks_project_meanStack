@@ -27,7 +27,7 @@ export class EditTaskComponent implements OnInit {
     this.myGroup = new FormGroup({
       label: new FormControl('', [Validators.required]),
       dueDate: new FormControl('', Validators.required),
-      discreption: new FormControl('', Validators.required),
+      discription: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
     });
   }
