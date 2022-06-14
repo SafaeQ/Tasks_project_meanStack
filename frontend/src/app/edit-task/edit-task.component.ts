@@ -24,9 +24,15 @@ export class EditTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-    // for close btn
-    onClose(): void {
-      this.dialogRef.close();
-    }
+// edit task
+  editTask(){
+    // this.myTask = task
+    // this.taskService.updateData().subscribe(task => {
+
+  }
+// for close btn
+  onClose(): void {
+    this.dialogRef.close();
+  }
 
 }
