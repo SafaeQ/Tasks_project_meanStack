@@ -23,7 +23,7 @@ export class TasksService {
 
   updateData(data: any, id: string): Observable<any> {
     let url: string = `${environment.api_Url}/${id}`
-    return this.http.patch(url, data)
+    return this.http.put(url, data)
   }
 
   deleteData(id: string): Observable<any> {

@@ -23,6 +23,12 @@ export class TasksComponent implements OnInit {
     })
   }
 
+  // delete task
+  deleteTask(id){
+    console.log(id)
+    this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
+  }
+
   // open the button modal add
   openAddBtn(){
     this.dialogRef.open(AddTaskComponent);
