@@ -12,7 +12,7 @@ export class TasksService {
 
   url: string = `${environment.api_Url}/`
 
-  public getAllTasks(): Observable<any>{
+  getAllTasks(): Observable<any>{
     return this.http.get<any>(this.url)
   }
 
@@ -27,6 +27,7 @@ export class TasksService {
   find(id: number): Observable<any>{
     return this.http.get(this.url + id)
   }
+
   deleteData(id: string): Observable<any> {
     return this.http.delete(this.url + id)
   }
