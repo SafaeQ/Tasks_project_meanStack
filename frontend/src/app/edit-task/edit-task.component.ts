@@ -24,9 +24,8 @@ export class EditTaskComponent implements OnInit {
   ngOnInit(): void {
   }
 
-// edit task
+
   editTask(){
-    // this.myTask = task
     // this.taskService.updateData().subscribe(task => {
 
   }
