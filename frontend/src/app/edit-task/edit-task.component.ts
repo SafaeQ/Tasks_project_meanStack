@@ -14,13 +14,13 @@ export class EditTaskComponent implements OnInit {
 
   constructor(private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
 
-  id: number;
+  _id: number;
   task: Task;
   myGroup: FormGroup;
 
   ngOnInit(): void {
-    this.id = this.route.snapshot.params['id'];
-    this.taskService.find(this.id).subscribe((data: Task) =>{
+    this._id = this.route.snapshot.params['_id'];
+    this.taskService.find(this._id).subscribe((data: Task) =>{
       this.task = data
     })
 
@@ -34,7 +34,7 @@ export class EditTaskComponent implements OnInit {
   body = null
 
   editTask(){
-    this.taskService.updateTask(this.id, this.myGroup.value).subscribe((res)=> {
+    this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res)=> {
       console.log(res);
     })
   }
