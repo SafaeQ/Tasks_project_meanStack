@@ -19,19 +19,19 @@ export class EditTaskComponent implements OnInit {
   myGroup: FormGroup;
 
   ngOnInit(): void {
-    this._id = this.route.snapshot.params['_id'];
+    this._id = this.route.snapshot.params[this._id];
     this.taskService.find(this._id).subscribe((data: Task) =>{
       this.task = data
     })
 
     this.myGroup = new FormGroup({
+      // id: new FormControl('', [Validators.required]),
       label: new FormControl('', [Validators.required]),
       dueDate: new FormControl('', Validators.required),
       discription: new FormControl('', Validators.required),
       type: new FormControl('', Validators.required),
     });
   }
-  body = null
 
   editTask(){
     this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res)=> {
