@@ -17,9 +17,12 @@ export class AddTaskComponent implements OnInit {
     body = {
     label: '',
     discription: '',
-    type: '',
+    type:  {
+      work:'Work',
+      personnel:'Personnel',
+      growth:'Growth'
+    },
     dueDate: '',
-
   }
 
   types_: TypeTask[] = [
