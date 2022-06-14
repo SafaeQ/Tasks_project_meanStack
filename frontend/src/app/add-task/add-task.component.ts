@@ -1,5 +1,5 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import {MatDialog, MatDialogRef, MAT_DIALOG_DATA} from '@angular/material/dialog';
+import { Component, OnInit, NgModule } from '@angular/core';
+import {MatDialogRef} from '@angular/material/dialog';
 import { TasksService } from '../services/tasks.service';
 
 interface TypeTask {
@@ -33,6 +33,9 @@ export class AddTaskComponent implements OnInit {
 
   task = {}
 
+  getOptionValue() {
+  }
+
   // submit data of tasks
   submitData() {
     const data = {
@@ -45,6 +48,8 @@ export class AddTaskComponent implements OnInit {
     .subscribe(response => {
       console.log(response)
     })
+    console.log(data);
+
   }
 
   // for close btn
