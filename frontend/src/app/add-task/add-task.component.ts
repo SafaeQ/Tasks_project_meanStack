@@ -1,6 +1,5 @@
 import { Router } from '@angular/router';
 import { Component, OnInit, NgModule } from '@angular/core';
-import {MatDialogRef} from '@angular/material/dialog';
 import { TasksService } from '../services/tasks.service';
 
 export interface Task {
@@ -36,7 +35,7 @@ export class AddTaskComponent implements OnInit {
     {value: 'growth-2', viewValue: 'Growth'},
   ];
 
-  constructor( private router:Router, public dialogRef: MatDialogRef<AddTaskComponent>, public taskService: TasksService) {
+  constructor( private router:Router, public taskService: TasksService) {
   }
 
   tasks: Task[] = []
@@ -60,9 +59,8 @@ export class AddTaskComponent implements OnInit {
     })
   }
 
-  // for close btn
-  onNoClick(): void {
-    this.dialogRef.close();
+  backtoTasks(): void {
+    this.router.navigateByUrl('/tasks');
   }
 
   ngOnInit(): void {

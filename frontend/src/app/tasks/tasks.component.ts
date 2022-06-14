@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -14,7 +15,7 @@ export class TasksComponent implements OnInit {
 
   tasks: any;
 
-  constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService) { }
+  constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
@@ -29,8 +30,11 @@ export class TasksComponent implements OnInit {
   }
 
   // open the button modal add
-  openAddBtn(){
-    this.dialogRef.open(AddTaskComponent);
+  gotoAddTasks() :void{
+    // this.dialogRef.open(AddTaskComponent);
+    console.log('click');
+
+    this.router.navigateByUrl('/new-task')
   }
 
 // open button modal edit
