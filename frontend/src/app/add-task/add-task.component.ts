@@ -18,10 +18,10 @@ export interface Task {
 export class AddTaskComponent implements OnInit {
 
     body = {
-    label: '',
-    discription: '',
-    type: '',
-    dueDate: '',
+      label: '',
+      discription: '',
+      type: '',
+      dueDate: '',
   }
 
   constructor( private router:Router, public taskService: TasksService) {
