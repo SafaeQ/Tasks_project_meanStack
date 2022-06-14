@@ -13,7 +13,7 @@ const routes: Routes = [
   {path: 'signup', component: SignupComponent},
   {path: 'tasks', component: TasksComponent,canActivate: [AuthGuard] },
   {path: 'new-task', component: AddTaskComponent,canActivate: [AuthGuard] },
-  {path: 'edit-task', component: EditTaskComponent,canActivate: [AuthGuard] },
+  {path: 'edit-task/:id', component: EditTaskComponent,canActivate: [AuthGuard] },
 ];
 
 @NgModule({
