@@ -1,4 +1,9 @@
 <mat-toolbar color="accent" >
   <span>Tasks application</span>
+  <div class="btn-logout">
+    <button *ngIf="isLoggedIn" mat-stroked-button tabindex="0" (click)="onLogout()">
+      <span>Logout</span>
+    </button>
+  </div>
 </mat-toolbar>
 <router-outlet></router-outlet>
