@@ -10,6 +10,7 @@
 button {
   border: #817f80 solid 1px;
   margin-right: 12px;
+  margin-top: 12px;
 }
 .content {
   max-width: 400px;
