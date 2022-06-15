@@ -2,9 +2,21 @@
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 30rem;
 }
 .btn {
   justify-content: center;
+  color: #ff4081;
 }
-
+button {
+  border: #ff4081 solid 1px;
+}
+.content {
+  max-width: 400px;
+  margin: 5em auto;
+  text-align: center;
+  width: 500px;
+  padding: 40px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  border-radius: 10%;
+  background: #f7f5f0;
+}
