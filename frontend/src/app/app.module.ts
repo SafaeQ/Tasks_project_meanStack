@@ -28,6 +28,7 @@ import { AddTaskComponent } from './add-task/add-task.component';
 import { MatDialogModule } from '@angular/material/dialog';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+import { CommonModule } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,8 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     MatOptionModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [AuthGuard, AuthService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
