@@ -27,10 +27,13 @@
       </p>
     </mat-card-content>
     <mat-card-actions>
-        <label class="form-check-label">
+        <!-- <label class="form-check-label">
           <input type="checkbox" class="form-check-input">
           Completed
-        </label>
+        </label> -->
+        <span class="badge badge-secondry badge-pill">
+          <i class="fa fa-thumbs-up"> hey</i>
+        </span>
       <button mat-stroked-button color="accent" (click)="gotoEditTask(task._id)" >Edit</button>
       <button mat-stroked-button color="accent" (click)="deleteTask(task._id)">Delete</button>
     </mat-card-actions>
