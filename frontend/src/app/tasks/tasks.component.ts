@@ -1,9 +1,7 @@
+import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { MatDialog } from '@angular/material/dialog';
-import { AddTaskComponent } from '../add-task/add-task.component';
-import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -14,23 +12,26 @@ export class TasksComponent implements OnInit {
 
   tasks: any;
 
-  constructor(private auth: AuthService,private dialogRef : MatDialog, public taskService: TasksService) { }
+  constructor(private auth: AuthService, public taskService: TasksService, private router: Router) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
       this.tasks = data;
-      console.log(data);
     })
   }
 
-  // open the button modal add
-  openAddBtn(){
-    this.dialogRef.open(AddTaskComponent);
+  // delete task
+  deleteTask(id){
+    this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
   }
 
-// open button modal edit
-  openEditBtn(){
-    this.dialogRef.open(EditTaskComponent)
+  gotoAddTasks() :void{
+    this.router.navigateByUrl('/new-task')
+  }
+
+
+  gotoEditTask(id){
+    this.router.navigateByUrl(`/edit-task/${id}`)
   }
 
 // for button logout

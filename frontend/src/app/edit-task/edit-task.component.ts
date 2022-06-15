@@ -1,32 +1,48 @@
-import { Component, Inject, OnInit } from '@angular/core';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
-
-interface TypeTask {
-  value: string;
-  viewValue: string;
-}
+import { Task } from './../add-task/add-task.component';
+import { ActivatedRoute, Router } from '@angular/router';
+import { TasksService } from './../services/tasks.service';
+import { Component, OnInit } from '@angular/core';
+import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-edit-task',
   templateUrl: './edit-task.component.html',
   styleUrls: ['./edit-task.component.css']
 })
+
 export class EditTaskComponent implements OnInit {
 
-  types_: TypeTask[] = [
-    {value: 'work-0', viewValue: 'Work'},
-    {value: 'personnel-1', viewValue: 'Personnel'},
-    {value: 'growth-2', viewValue: 'Growth'},
-  ];
+  constructor(private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
 
-  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any) { }
+
+  _id: string;
+  task: Task;
+  myGroup: FormGroup;
+
+  message = ''
 
   ngOnInit(): void {
+    this._id = this.route.snapshot.params['id'];
+    this.taskService.find(this._id).subscribe((data: Task) =>{
+      this.task = data
+    })
+
+    this.myGroup = new FormGroup({
+      label: new FormControl('', [Validators.required]),
+      dueDate: new FormControl('', Validators.required),
+      discription: new FormControl('', Validators.required),
+      type: new FormControl('', Validators.required),
+    });
   }
 
-    // for close btn
-    onClose(): void {
-      this.dialogRef.close();
-    }
+  editTask(){
+    this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res) => {
+      this.router.navigateByUrl('tasks')
+    })
+  }
+
+  backToTasks(): void {
+    this.router.navigateByUrl('/tasks');
+  }
 
 }

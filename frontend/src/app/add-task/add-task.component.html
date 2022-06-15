@@ -1,3 +1,4 @@
+  <div class="content">
   <h1 mat-dialog-title>Add new Task </h1>
 <div mat-dialog-content class="container">
   <p>What will your task be again ?</p>
@@ -16,19 +17,20 @@
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Type</mat-label>
-    <mat-select>
-      <mat-option  id="select" *ngFor="let type of types_" [value]="type.value" [(ngModel)]="body.type">
-        {{type.viewValue}}
-      </mat-option>
-    </mat-select>
+    <input matInput [(ngModel)]="body.type"/>
+    <mat-hint>work | personnal | growth</mat-hint>
   </mat-form-field>
   <mat-form-field appearance="fill">
     <mat-label>Description</mat-label>
     <input matInput [(ngModel)]="body.discription"/>
   </mat-form-field>
+  <label class="form-check-label">
+        <input type="checkbox" class="form-check-input">
+            Completed
+  </label>
 </div>
 <div mat-dialog-actions class="btn">
-  <button mat-button (click)="onNoClick()">Close</button>
-  <button mat-button cdkFocusInitial (click)="submitData()" >Add</button>
-
+  <button mat-stroked-button color="accent" (click)="backtoTasks()">Back</button>
+  <button mat-stroked-button color="accent" cdkFocusInitial (click)="submitData()" >Add</button>
+</div>
 </div>
