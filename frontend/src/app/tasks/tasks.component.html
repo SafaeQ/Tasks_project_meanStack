@@ -1,40 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" integrity="sha512-KfkfwYDsLkIlwQp6LFnl8zNdLGxu9YAA1QvwINks4PhcElQSvqcyVLLD9aMhXd13uQjoXtEKNosOWaZqXgel0g==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>App</title>
+</head>
+<body>
 
-<mat-toolbar color="accent" >
-    <span>Tasks application</span>
-    <div class="btn-logout">
-      <button mat-stroked-button tabindex="0" (click)="onLogout()">
-        <span>Logout</span>
-      </button>
+
+  <div class="all">
+    <!-- <mat-toolbar color="accent" >
+        <span>Tasks application</span>
+        <div class="btn-logout">
+          <button mat-stroked-button tabindex="0" (click)="onLogout()">
+            <span>Logout</span>
+          </button>
+        </div>
+    </mat-toolbar> -->
+    <div class="card-container">
+      <div class="content">
+        <button class="card card-small" tabindex="0" (click)="gotoAddTasks()">
+          <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          <span>New Task</span>
+        </button>
+      </div>
+      <div class="container">
+      <mat-card class="ex-card" *ngFor="let task of tasks">
+        <mat-card-header>
+          <mat-card-title>{{ task.label }}</mat-card-title>
+          <mat-card-subtitle><span id="gar"> Date : </span> {{ task.dueDate }} </mat-card-subtitle>
+          <mat-card-subtitle><span id="gar"> Type : </span> {{ task.type }} </mat-card-subtitle>
+        </mat-card-header>
+        <mat-card-content>
+          <p>
+            {{ task.discription}}
+          </p>
+        </mat-card-content>
+        <mat-card-actions>
+            <span class="badge badge-secondry badge-pill">
+              <i class="fa fa-thumbs-up"></i>
+            </span>
+          <button mat-stroked-button color="accent" (click)="gotoEditTask(task._id)" >Edit</button>
+          <button mat-stroked-button color="accent" (click)="deleteTask(task._id)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
     </div>
-</mat-toolbar>
-<div class="card-container">
-  <div class="content">
-    <button class="card card-small" tabindex="0" (click)="gotoAddTasks()">
-      <svg class="material-icons" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
-      <span>New Task</span>
-    </button>
-  </div>
-  <div class="container">
-  <mat-card class="ex-card" *ngFor="let task of tasks">
-    <mat-card-header>
-      <mat-card-title>{{ task.label }}</mat-card-title>
-      <mat-card-subtitle><span id="gar"> Date : </span> {{ task.dueDate }} </mat-card-subtitle>
-      <mat-card-subtitle><span id="gar"> Type : </span> {{ task.type }} </mat-card-subtitle>
-    </mat-card-header>
-    <mat-card-content>
-      <p>
-        {{ task.discription}}
-      </p>
-    </mat-card-content>
-    <mat-card-actions>
-        <span class="badge badge-secondry badge-pill">
-          <i class="fa fa-thumbs-up"> hey</i>
-        </span>
-      <button mat-stroked-button color="accent" (click)="gotoEditTask(task._id)" >Edit</button>
-      <button mat-stroked-button color="accent" (click)="deleteTask(task._id)">Delete</button>
-    </mat-card-actions>
-  </mat-card>
-</div>
-</div>
-
-
+    </div>
+    </div>
+</body>
+</html>
