@@ -20,13 +20,11 @@ export class TasksService {
     return this.http.post<any>(this.url + '/add', task)
   }
 
-  updateTask(data: any, id: string): Observable<any> {
-    // console.log(_id);
+  updateTask(id: string,data: any): Observable<any> {
     return this.http.put(this.url + id, data)
   }
 
   find(id: string): Observable<any>{
-    console.log('idddd',id);
     return this.http.get(this.url + id)
   }
 

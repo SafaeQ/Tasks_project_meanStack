@@ -14,9 +14,12 @@ export class EditTaskComponent implements OnInit {
 
   constructor(private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
 
+
   _id: string;
   task: Task;
   myGroup: FormGroup;
+
+  message = ''
 
   ngOnInit(): void {
     this._id = this.route.snapshot.params['id'];
@@ -25,7 +28,6 @@ export class EditTaskComponent implements OnInit {
     })
 
     this.myGroup = new FormGroup({
-      // id: new FormControl('', [Validators.required]),
       label: new FormControl('', [Validators.required]),
       dueDate: new FormControl('', Validators.required),
       discription: new FormControl('', Validators.required),
@@ -34,8 +36,8 @@ export class EditTaskComponent implements OnInit {
   }
 
   editTask(){
-    this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res)=> {
-      console.log(res);
+    this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res) => {
+      this.router.navigateByUrl('tasks')
     })
   }
 
