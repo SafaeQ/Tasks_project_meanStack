@@ -31,8 +31,8 @@ export class TasksComponent implements OnInit {
   }
 
 
-  gotoEditTask(){
-    this.router.navigateByUrl('/edit-task/:id')
+  gotoEditTask(id){
+    this.router.navigateByUrl(`/edit-task/${id}`)
   }
 
 // for button logout
