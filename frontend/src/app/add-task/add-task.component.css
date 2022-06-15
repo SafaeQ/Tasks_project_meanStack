@@ -8,7 +8,8 @@
   color: #ff4081;
 }
 button {
-  border: #ff4081 solid 1px;
+  border: #817f80 solid 1px;
+  margin-right: 12px;
 }
 .content {
   max-width: 400px;
