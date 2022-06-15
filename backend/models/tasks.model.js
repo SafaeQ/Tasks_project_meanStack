@@ -14,10 +14,6 @@ const Tasks = new mongoose.Schema({
         required: true,
         enum: ['work', 'personal', 'growth']
     },
-    completed: {
-        type: Boolean,
-        required: true,
-    },
     dueDate: {
         type: Date,
         default: Date.now()

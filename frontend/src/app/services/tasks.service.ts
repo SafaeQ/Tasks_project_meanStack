@@ -17,7 +17,9 @@ export class TasksService {
   }
 
   createTask(task: any) {
-    return this.http.post<any>(this.url + '/add', task)
+    console.log(task);
+
+    return this.http.post<any>(this.url + 'add', task)
   }
 
   updateTask(id: string,data: any): Observable<any> {
@@ -31,6 +33,7 @@ export class TasksService {
   deleteData(id: string): Observable<any> {
     return this.http.delete(this.url + id)
   }
+
 }
 
 
