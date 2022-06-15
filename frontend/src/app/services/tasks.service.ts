@@ -17,8 +17,6 @@ export class TasksService {
   }
 
   createTask(task: any) {
-    console.log(task);
-
     return this.http.post<any>(this.url + 'add', task)
   }
 
