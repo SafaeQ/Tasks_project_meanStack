@@ -1,4 +1,3 @@
-import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
@@ -12,7 +11,7 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 export class EditTaskComponent implements OnInit {
 
-  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any,private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
+  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any, public taskService: TasksService) { }
 
   activeTask:any;
   myGroup: FormGroup;
