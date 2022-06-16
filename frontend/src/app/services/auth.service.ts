@@ -16,7 +16,9 @@ export class AuthService {
   constructor(private http:HttpClient, private router: Router,) { }
 
   login(email:String, password: String): any{
+
     let loginUrl = `${environment.api_Url}/login`;
+
     let data = {
       email: email,
       password:password
