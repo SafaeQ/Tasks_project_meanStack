@@ -19,7 +19,6 @@ export class EditTaskComponent implements OnInit {
 
   ngOnInit(): void {
     this.activeTask = this.data;
-
     this.myGroup = new FormGroup({
       label: new FormControl('', [Validators.required]),
       dueDate: new FormControl('', Validators.required),
@@ -29,16 +28,12 @@ export class EditTaskComponent implements OnInit {
   }
 
 
-
   editTask(){
     this.taskService.updateTask(this.activeTask._id, this.myGroup.value).subscribe((res) => {
       this.dialogRef.close()
     })
   }
 
-  backToTasks(): void {
-    this.router.navigateByUrl('/tasks');
-  }
   onClose(): void {
     this.dialogRef.close();
   }
