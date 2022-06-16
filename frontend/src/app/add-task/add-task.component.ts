@@ -1,7 +1,6 @@
-import { Router } from '@angular/router';
-import { Component, OnInit, NgModule, Inject, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { TasksService } from '../services/tasks.service';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { MatDialogRef } from '@angular/material/dialog';
 import { TasksComponent } from '../tasks/tasks.component';
 
 
@@ -27,7 +26,7 @@ export class AddTaskComponent implements OnInit {
       dueDate: "",
   }
 
-  constructor( private router:Router, public taskService: TasksService,  public dialogRef: MatDialogRef<TasksComponent>,@Inject(MAT_DIALOG_DATA) public data: Task,) {
+  constructor( public taskService: TasksService,  public dialogRef: MatDialogRef<TasksComponent>) {
   }
 
   ngOnInit(): void {
