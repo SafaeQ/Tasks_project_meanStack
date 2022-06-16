@@ -37,7 +37,6 @@ export class TasksComponent implements OnInit {
 // for button logout
   onLogout(){
     localStorage.removeItem('token')
-    console.log('logout');
     this.auth.navigateToLogin()
   }
 

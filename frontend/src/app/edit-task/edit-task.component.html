@@ -1,3 +1,11 @@
+<mat-toolbar color="accent" >
+  <span>Tasks application</span>
+  <div class="btn-logout">
+    <!-- <button *ngIf="isLoggedIn" mat-stroked-button tabindex="0" (click)="onLogout()">
+      <span>Logout</span>
+    </button> -->
+  </div>
+</mat-toolbar>
 <div class="content">
 <h1 mat-dialog-title>Edit your Task </h1>
 <form [formGroup]="myGroup" (ngSubmit)="editTask()">
