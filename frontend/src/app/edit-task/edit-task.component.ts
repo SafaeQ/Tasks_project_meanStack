@@ -1,8 +1,7 @@
-import { Task } from './../add-task/add-task.component';
-import { ActivatedRoute, Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators} from '@angular/forms';
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-edit-task',
@@ -12,21 +11,13 @@ import { FormGroup, FormControl, Validators} from '@angular/forms';
 
 export class EditTaskComponent implements OnInit {
 
-  constructor(private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
+  constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any, public taskService: TasksService) { }
 
-
-  _id: string;
-  task: Task;
+  activeTask:any;
   myGroup: FormGroup;
 
-  message = ''
-
   ngOnInit(): void {
-    this._id = this.route.snapshot.params['id'];
-    this.taskService.find(this._id).subscribe((data: Task) =>{
-      this.task = data
-    })
-
+    this.activeTask = this.data;
     this.myGroup = new FormGroup({
       label: new FormControl('', [Validators.required]),
       dueDate: new FormControl('', Validators.required),
@@ -35,14 +26,14 @@ export class EditTaskComponent implements OnInit {
     });
   }
 
+
   editTask(){
-    this.taskService.updateTask(this._id, this.myGroup.value).subscribe((res) => {
-      this.router.navigateByUrl('tasks')
+    this.taskService.updateTask(this.activeTask._id, this.myGroup.value).subscribe((res) => {
+      this.dialogRef.close()
     })
   }
 
-  backToTasks(): void {
-    this.router.navigateByUrl('/tasks');
+  onClose(): void {
+    this.dialogRef.close();
   }
-
 }

@@ -5,29 +5,31 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
-import { MatMenuModule } from '@angular/material/menu';
-import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MatTableModule } from '@angular/material/table';
-import { MatSlideToggleModule } from '@angular/material/slide-toggle';
-import { MatSelectModule } from '@angular/material/select';
 import { MatDatepickerModule } from '@angular/material/datepicker';
 import { MatNativeDateModule } from '@angular/material/core'
-import { MatOptionModule } from '@angular/material/core';
 import { FormsModule , ReactiveFormsModule} from '@angular/forms';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CommonModule } from '@angular/common';
+
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SignupComponent } from './authComponent/signup/signup.component';
 import { LoginComponent } from './authComponent/login/login.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatFormFieldModule } from '@angular/material/form-field';
 import { TasksComponent } from './tasks/tasks.component';
 import { AuthGuard } from './guard/auth.guard';
 import { AuthService } from './services/auth.service';
 import { AddTaskComponent } from './add-task/add-task.component';
-import { MatDialogModule } from '@angular/material/dialog';
 import { EditTaskComponent } from './edit-task/edit-task.component';
 import { TokenInterceptorService } from './services/token-interceptor.service';
+
+
+
+
+
+
 
 @NgModule({
   declarations: [
@@ -50,16 +52,11 @@ import { TokenInterceptorService } from './services/token-interceptor.service';
     MatInputModule,
     MatCardModule,
     ReactiveFormsModule,
-    MatMenuModule,
-    MatIconModule,
     MatButtonModule,
-    MatTableModule,
-    MatSlideToggleModule,
-    MatSelectModule,
-    MatOptionModule,
     MatNativeDateModule,
     MatDatepickerModule,
-    MatDialogModule
+    MatDialogModule,
+    CommonModule
   ],
   providers: [AuthGuard, AuthService, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptorService, multi: true}],
   bootstrap: [AppComponent]
