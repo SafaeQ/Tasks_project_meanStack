@@ -19,7 +19,7 @@ export interface Task {
 })
 
 export class AddTaskComponent implements OnInit {
-    // @Output() callCreate = new EventEmitter<boolean>();
+
     body = {
       label: '',
       discription: '',
@@ -31,10 +31,9 @@ export class AddTaskComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    // this.submitData()
   }
 
-  // submit data of tasks
+  // create new task
   submitData() {
     const task = {
       label : this.body.label,
@@ -43,16 +42,8 @@ export class AddTaskComponent implements OnInit {
       type : this.body.type,
     }
     this.taskService.createTask(task)
-    .subscribe(() => {
-      console.log(task, 'dddddddd');
-      // this.callCreate.emit(true);
-      // this.tasks = [task, ...this.tasks]
-    })
+    .subscribe()
     this.onNoClick()
-  }
-
-  backtoTasks(): void {
-    this.router.navigateByUrl('/tasks');
   }
 
   onNoClick(): void {
