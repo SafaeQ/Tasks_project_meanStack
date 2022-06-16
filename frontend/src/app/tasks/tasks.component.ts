@@ -1,7 +1,7 @@
 import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AddTaskComponent } from '../add-task/add-task.component';
 import { MatDialog } from '@angular/material/dialog';
 import { EditTaskComponent } from '../edit-task/edit-task.component';
@@ -23,15 +23,9 @@ export class TasksComponent implements OnInit {
     })
   }
 
-  // delete task
   deleteTask(id: string){
     this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
   }
-
-  gotoAddTasks() :void{
-    this.router.navigateByUrl('/new-task')
-  }
-
 
   gotoEditTask(id:string){
     console.log(id);
