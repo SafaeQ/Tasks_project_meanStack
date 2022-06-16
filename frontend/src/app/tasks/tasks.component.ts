@@ -1,7 +1,10 @@
 import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
+import { AddTaskComponent } from '../add-task/add-task.component';
+import { MatDialog } from '@angular/material/dialog';
+import { EditTaskComponent } from '../edit-task/edit-task.component';
 
 @Component({
   selector: 'app-tasks',
@@ -12,7 +15,7 @@ export class TasksComponent implements OnInit {
 
   tasks: any;
 
-  constructor(private auth: AuthService, public taskService: TasksService, private router: Router) { }
+  constructor(private auth: AuthService,public dialog: MatDialog, public taskService: TasksService, private router: Router ) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
@@ -21,7 +24,7 @@ export class TasksComponent implements OnInit {
   }
 
   // delete task
-  deleteTask(id){
+  deleteTask(id: string){
     this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
   }
 
@@ -30,8 +33,12 @@ export class TasksComponent implements OnInit {
   }
 
 
-  gotoEditTask(id){
-    this.router.navigateByUrl(`/edit-task/${id}`)
+  gotoEditTask(id:string){
+    console.log(id);
+    this.dialog.open(EditTaskComponent,{data:this.tasks.find(el=>{return el._id == id;})}).afterClosed().subscribe((res)=>{
+      this.ngOnInit()
+    })
+    // this.router.navigateByUrl(`/edit-task/${id}`)
   }
 
 // for button logout
@@ -39,6 +46,14 @@ export class TasksComponent implements OnInit {
     localStorage.removeItem('token')
     this.auth.navigateToLogin()
   }
-
-
+  openDialog(tasks: any): void {
+    console.log(tasks);
+    this.dialog.open(AddTaskComponent, {
+      data: {
+        tasks: tasks
+      }
+    }).afterClosed().subscribe(res=>{
+      this.ngOnInit()
+    })
+  }
 }
