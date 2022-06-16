@@ -1,5 +1,4 @@
 import { AuthService } from 'src/app/services/auth.service';
-import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -13,7 +12,7 @@ export class SignupComponent implements OnInit {
   email:String = ""
   password:String= ""
 
-  constructor(private auth: AuthService, private router:Router) { }
+  constructor(private auth: AuthService) { }
 
   ngOnInit(): void {
   }
