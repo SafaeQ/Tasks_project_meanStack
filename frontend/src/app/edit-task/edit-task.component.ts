@@ -14,11 +14,8 @@ export class EditTaskComponent implements OnInit {
 
   constructor(public dialogRef: MatDialogRef<EditTaskComponent>, @Inject(MAT_DIALOG_DATA) public data:any,private router: Router,private route: ActivatedRoute, public taskService: TasksService) { }
 
-
   activeTask:any;
   myGroup: FormGroup;
-
-  message = ''
 
   ngOnInit(): void {
     this.activeTask = this.data;
