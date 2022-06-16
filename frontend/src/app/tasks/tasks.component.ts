@@ -1,4 +1,3 @@
-import { Router } from '@angular/router';
 import { TasksService } from './../services/tasks.service';
 import { AuthService } from './../services/auth.service';
 import { Component, OnInit } from '@angular/core';
@@ -15,7 +14,7 @@ export class TasksComponent implements OnInit {
 
   tasks: any;
 
-  constructor(private auth: AuthService,public dialog: MatDialog, public taskService: TasksService, private router: Router ) { }
+  constructor(private auth: AuthService,public dialog: MatDialog, public taskService: TasksService) { }
 
   ngOnInit(): void {
     this.taskService.getAllTasks().subscribe((data)=>{
