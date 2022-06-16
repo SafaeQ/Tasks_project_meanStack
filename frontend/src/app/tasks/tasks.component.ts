@@ -27,20 +27,19 @@ export class TasksComponent implements OnInit {
     this.taskService.deleteData(id).subscribe(() => {this.tasks = this.tasks.filter(task => task._id != id)})
   }
 
-  gotoEditTask(id:string){
+  openDialogEdit(id:string){
     console.log(id);
     this.dialog.open(EditTaskComponent,{data:this.tasks.find(el=>{return el._id == id;})}).afterClosed().subscribe((res)=>{
       this.ngOnInit()
     })
-    // this.router.navigateByUrl(`/edit-task/${id}`)
   }
 
-// for button logout
   onLogout(){
     localStorage.removeItem('token')
     this.auth.navigateToLogin()
   }
-  openDialog(tasks: any): void {
+
+  openDialogAdd(tasks: any): void {
     console.log(tasks);
     this.dialog.open(AddTaskComponent, {
       data: {
